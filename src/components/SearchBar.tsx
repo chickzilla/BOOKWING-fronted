@@ -137,7 +137,7 @@ export default function SearchBar() {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="w-full px-[50px]">
+    <div className="w-[75%] px-[50px]">
       <Autocomplete
         id="free-solo-demo"
         freeSolo
