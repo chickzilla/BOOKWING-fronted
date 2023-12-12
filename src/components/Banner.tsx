@@ -1,7 +1,6 @@
 "use client";
 
 import SimpleSlider from "./BannerSlide";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Banner() {
   return (
