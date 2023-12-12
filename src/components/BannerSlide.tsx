@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import BannerCardSlider from "./BannerCardSlider";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default class SimpleSlider extends Component {
   render() {
