@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import InputAdornment from "@mui/material/InputAdornment";
 
 export default function SearchBar() {
   // mock data
@@ -138,7 +137,7 @@ export default function SearchBar() {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="w-[75%] z-20 absolute bottom-10  ">
+    <div className="w-[75%] ">
       <SearchIcon />
       <Autocomplete
         id="free-solo-demo"
