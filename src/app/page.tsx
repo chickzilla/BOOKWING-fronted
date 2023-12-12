@@ -8,7 +8,6 @@ export default function Home() {
     <main className="bg-neutral-100 w-full h-[100vh] mt-[50px] flex flex-col justify-around items-center">
       <HomeHeader />
       <HomeCard />
-      <SearchBar />
       <Banner />
     </main>
   );

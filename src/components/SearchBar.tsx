@@ -1,8 +1,9 @@
 "use client";
 import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import InputAdornment from "@mui/material/InputAdornment";
 
 export default function SearchBar() {
   // mock data
@@ -137,7 +138,8 @@ export default function SearchBar() {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="w-[75%] px-[50px]">
+    <div className="w-[75%] z-20 absolute bottom-10  ">
+      <SearchIcon />
       <Autocomplete
         id="free-solo-demo"
         freeSolo
@@ -150,7 +152,19 @@ export default function SearchBar() {
           }
         }}
         renderInput={(params) => (
-          <TextField {...params} label="Event, Organizer, Location" />
+          <TextField
+            {...params}
+            placeholder="Event, Organizer, Location"
+            sx={{
+              "& .MuiInputBase-root": {
+                border: "2px solid ", // Set your desired border color
+                borderRadius: "8px", // Set your desired border radius
+                backgroundColor: "white",
+                height: "100%", // Set your desired height
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              },
+            }}
+          />
         )}
       />
     </div>
