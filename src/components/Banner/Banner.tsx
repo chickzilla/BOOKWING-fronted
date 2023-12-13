@@ -45,7 +45,7 @@ export default function Banner() {
           effect={"coverflow"}
           // Customize coverflow parameters
           coverflowEffect={{
-            rotate: 50,
+            rotate: 55,
             stretch: 0,
             depth: 100,
             modifier: 1,
