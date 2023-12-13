@@ -6,6 +6,7 @@ import {
   Scrollbar,
   A11y,
   EffectCoverflow,
+  Autoplay,
 } from "swiper/modules";
 
 import HomeCardItem from "../HomeCard/HomeCardItem";
@@ -27,7 +28,14 @@ export default function Banner() {
           <NavigateBeforeIcon sx={{ width: "40%", height: "40%" }} />
         </div>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+          modules={[
+            Navigation,
+            Pagination,
+            Scrollbar,
+            A11y,
+            EffectCoverflow,
+            Autoplay,
+          ]}
           // custom navigation buttons using icons
           navigation={{
             nextEl: ".banner-next",
@@ -42,6 +50,11 @@ export default function Banner() {
             depth: 100,
             modifier: 1,
             slideShadows: false,
+          }}
+          // autoplay
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
           }}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
