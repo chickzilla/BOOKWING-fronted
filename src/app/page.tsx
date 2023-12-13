@@ -1,5 +1,5 @@
-import HomeCard from "@/components/HomeCard";
-import Banner from "@/components/Banner";
+import HomeCard from "@/components/HomeCard/HomeCard";
+import Banner from "@/components/Banner/Banner";
 import HomeHeader from "@/components/HomeHeader";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 
@@ -32,8 +32,6 @@ export default function Home() {
             Passion!"
           </div>
         </div>
-
-        <Banner />
       </main>
     </>
   );
