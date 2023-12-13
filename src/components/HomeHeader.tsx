@@ -3,7 +3,7 @@ import Banner from "./Banner/Banner";
 
 export default function HomeHeader() {
   return (
-    <div className="w-full h-[28%] flex flex-col bg-gradient-to-b from-[#B22222] to-[#FA8072]">
+    <div className="w-full h-[60vh] flex flex-col bg-gradient-to-b from-[#B22222] to-[#FA8072]">
       <div className="w-full h-[30%] flex items-center justify-center text-center my-10">
         <Banner />
       </div>
