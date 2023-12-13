@@ -6,20 +6,23 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 export default function Home() {
   return (
     <>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-      />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-      />
+      <header>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+      </header>
+
       <main className="bg-neutral-100 w-full h-[150vh] flex flex-col items-center pt-[70px]">
         <HomeHeader />
         <HomeCard />
-        <div className="w-[75%] space-y-5">
+        <div className="w-[80%] space-y-5">
           <div className="text-black w-full font-bold mt-16 text-4xl">
             HOT EVENT
           </div>
