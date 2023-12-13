@@ -1,8 +1,7 @@
 import HomeCard from "@/components/HomeCard/HomeCard";
-import Banner from "@/components/Banner/Banner";
 import HomeHeader from "@/components/HomeHeader";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import Closing from "@/components/Closing/Closing";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -23,6 +22,29 @@ export default function Home() {
       <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center pt-[70px]">
         <HomeHeader />
         <HomeCard />
+        <div className="w-[80%] space-y-5 space-x-12 items-start mt-24 mb-10 flex flex-row">
+          <div className="space-y-12 w-[50%]">
+            <div className="text-black w-full font-bold text-4xl text-start">
+              Search by Google Map
+            </div>
+            <div className="text-gray-600 w-[100%]">
+              "Embark on the Ultimate Adventure – Let's Find Your Event with
+              Google Maps! 🗺️ Discover Exciting Running Events Near You. Don't
+              Miss Out – Secure Your Spot Now and Navigate Your Way to Running
+              Bliss! 🏃‍♂️🌟"
+            </div>
+          </div>
+          <div className="h-[100%] w-[50%] items-center text-center flex justify-center">
+            <Link
+              href="/mapPage"
+              className="h-[100%] w-[100%] items-center text-center flex justify-center"
+            >
+              <div className="flex flex-row items-center bg-white w-[60%] h-[80%] justify-center px-5 rounded-xl shadow-md border-2 border-black hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105 text-black text-2xl font-semibold">
+                🗺️ View Map
+              </div>
+            </Link>
+          </div>
+        </div>
         <div className="w-[80%] space-y-5 items-center mt-14 mb-2">
           <div className="text-black w-full font-bold text-4xl">
             Closing Soon EVENT
@@ -34,17 +56,6 @@ export default function Home() {
           </div>
         </div>
         <Closing />
-        <div className="w-[80%] space-y-5 items-center mt-24 mb-2">
-          <div className="text-black w-full font-bold text-4xl text-center">
-            Search by Google Map
-          </div>
-          <div className="text-gray-600">
-            "Embark on the Ultimate Adventure – Let's Find Your Event with
-            Google Maps! 🗺️ Discover Exciting Running Events Near You. Don't
-            Miss Out – Secure Your Spot Now and Navigate Your Way to Running
-            Bliss! 🏃‍♂️🌟"
-          </div>
-        </div>
       </main>
     </>
   );
