@@ -14,7 +14,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 export default function HomeCard() {
   return (
-    <div className="px-2 py-2 mx-auto mt-10 bg-white rounded-xl shadow-md space-x-4 w-[80%] h-[20vh] flex items-center justify-center text-center border-2 border-black">
+    <div className="px-2 mx-auto mt-10 bg-white rounded-xl shadow-md space-x-4 w-[80%] h-[20vh] flex items-center justify-center text-center border-2 border-black ">
       <div className="custom-prev" style={{ color: "black" }}>
         <NavigateBeforeIcon />
       </div>
@@ -30,7 +30,7 @@ export default function HomeCard() {
         spaceBetween={20}
         slidesPerView={5}
         loop={true}
-        className="m-auto w-full h-full"
+        className="m-auto w-full h-full overflow-visible "
       >
         <SwiperSlide className="">
           {" "}
