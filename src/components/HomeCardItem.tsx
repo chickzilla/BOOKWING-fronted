@@ -11,6 +11,7 @@ export default function HomeCardItem({
     <div className="w-[20%] flex flex-col justify-center items-center w-[100%] h-[100%]">
       <div className="w-full h-[60%]">
         <DirectionsRunIcon
+          className="icon transition-transform transform-gpu hover:scale-110 hover:cursor-pointer"
           sx={{ color: "red", width: "100%", height: "100%" }}
         />
       </div>
