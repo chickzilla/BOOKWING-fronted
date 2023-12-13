@@ -28,9 +28,9 @@ export default function Home() {
             Closing Soon EVENT
           </div>
           <div className="text-gray-600">
-            "Hit the Pavement, Heat Up Your Run! 🔥 Discover the Hottest Events
-            in Town. Don't Miss Out – Book Your Spot Now and Ignite Your Running
-            Passion!"
+            "Feel the Rush, Ignite Your Run! 🔥 Grab Your Spot in the Hottest
+            Closing Soon Events. Time is Running Out – Secure Your Place Now and
+            Fuel Your Running Passion!"
           </div>
         </div>
         <Closing />
