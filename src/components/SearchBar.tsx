@@ -137,8 +137,7 @@ export default function SearchBar() {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="w-[75%] h-[100%] my-auto">
-      <SearchIcon />
+    <div className="w-[80%] h-[100%] my-auto py-5">
       <Autocomplete
         id="free-solo-demo"
         freeSolo
@@ -153,11 +152,11 @@ export default function SearchBar() {
         renderInput={(params) => (
           <TextField
             {...params}
-            placeholder="Event, Organizer, Location"
+            placeholder="🔍 Event, Organizer, Location"
             sx={{
               "& .MuiInputBase-root": {
                 border: "2px solid ", // Set your desired border color
-                borderRadius: "8px", // Set your desired border radius
+                borderRadius: "50px", // Set your desired border radius
                 backgroundColor: "white",
                 height: "100%", // Set your desired height
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",

@@ -8,7 +8,7 @@ export default function HomeCardItem({
   description: string;
 }) {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full text-center m-auto hover:scale-105 hover:cursor-pointer  hover:bg-[#F9ECEC] transition-all duration-300 py-2">
+    <div className="flex flex-col justify-center items-center w-full h-full text-center m-auto hover:scale-110 hover:cursor-pointer  transition-all duration-300 py-2">
       <div className="w-full h-[60%]">
         <DirectionsRunIcon
           className="icon transition-transform transform-gpu "
