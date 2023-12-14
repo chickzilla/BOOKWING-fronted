@@ -1,4 +1,1 @@
-
-export default function detailPage(){
-    
-}
+export default function detailPage() {}
