@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../../app/globals.css";
-import SideBarType from "@/components/SideBarType/SideBarType";
+import NavBarType from "@/components/NavBarType/NavBarType";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,7 @@ export default function TypeLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SideBarType />
+        <NavBarType />
         {children}
       </body>
     </html>
