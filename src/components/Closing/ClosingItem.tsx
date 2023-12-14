@@ -4,10 +4,10 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import Link from "next/link";
 
-export default function ClosingItem() {
+export default function ClosingItem({ eventid }: { eventid: string }) {
   return (
     <Link
-      href="/runningevent/eventid"
+      href={`/runningevent/${eventid}`}
       className="flex flex-row items-center bg-white w-[100%] h-[33%] justify-between px-5 rounded-xl shadow-md border-2 border-black hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105"
     >
       <div className=" flex flex-col items-start justify-between space-y-2">
