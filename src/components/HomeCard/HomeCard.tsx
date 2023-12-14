@@ -41,7 +41,7 @@ export default function HomeCard() {
         spaceBetween={20}
         slidesPerView={5}
         loop={true}
-        className="m-auto w-full h-full overflow-visible "
+        className="m-auto w-full h-full overflow-visible"
       >
         <SwiperSlide className="">
           {" "}
