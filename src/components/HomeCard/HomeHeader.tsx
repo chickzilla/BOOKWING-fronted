@@ -1,5 +1,5 @@
 import SearchBar from "./SearchBar";
-import Banner from "./Banner/Banner";
+import Banner from "../Banner/Banner";
 
 export default function HomeHeader() {
   return (

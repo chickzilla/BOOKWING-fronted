@@ -2,7 +2,6 @@
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
 
 export default function SearchBar() {
   // mock data
