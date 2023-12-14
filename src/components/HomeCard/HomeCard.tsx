@@ -1,5 +1,11 @@
 "use client";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
 
 import HomeCardItem from "./HomeCardItem";
 // Import Swiper React components
@@ -19,11 +25,16 @@ export default function HomeCard() {
         <NavigateBeforeIcon />
       </div>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         // custom navigation buttons using icons
         navigation={{
           nextEl: ".custom-next",
           prevEl: ".custom-prev",
+        }}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}

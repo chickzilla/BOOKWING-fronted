@@ -3,10 +3,10 @@ import Banner from "../Banner/Banner";
 
 export default function HomeHeader() {
   return (
-    <div className="w-full h-[65vh] flex flex-col bg-gradient-to-b from-[#B22222] to-[#FA8072]">
-      <div className="w-full h-[40%] flex items-center justify-center text-center my-10">
+    <div className="w-full h-[35vh] flex flex-col bg-gradient-to-b from-[#B22222] to-[#FA8072] space-y-12">
+      {/*<div className="w-full h-[40%] flex items-center justify-center text-center my-10">
         <Banner />
-      </div>
+  </div>*/}
       <div className="text-5xl font-bold font-mono text-center justify-center h-[18%] w-full items-center flex mt-5">
         Find. Book. Run. Repeat.
       </div>
