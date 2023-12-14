@@ -1,7 +1,7 @@
-import HomeCard from "@/components/HomeCard/HomeCard";
 import HomeHeader from "@/components/HomeCard/HomeHeader";
 import MapHome from "@/components/GGMap/MapHome";
 import ClosingMain from "@/components/Closing/ClosingMain";
+import HomeCardWithText from "@/components/HomeCard/HomeCardWithText";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
 
       <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center pt-[70px]">
         <HomeHeader />
-        <HomeCard />
+        <HomeCardWithText />
         <MapHome />
         <ClosingMain />
       </main>
