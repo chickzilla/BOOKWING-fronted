@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "../components/NavBar/Navbar";
+import "../../app/globals.css";
+import SideBarType from "@/components/SideBarType/SideBarType";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "THE BEST RUNNING EVENT WEBSITE",
 };
 
-export default function RootLayout({
+export default function TypeLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
+        <SideBarType />
         {children}
       </body>
     </html>
