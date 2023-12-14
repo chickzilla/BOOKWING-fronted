@@ -1,7 +1,9 @@
+import NavBarType from "@/components/NavBarType/NavBarType";
 export default function TypePage({ params }: { params: { tname: string } }) {
   return (
-    <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center mt-[120px] text-black py-16">
-      <div className="space-y-4 w-[80%] h-[20%] flex flex-row justify-around">
+    <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center mt-[70px] text-black py-16">
+      <NavBarType />
+      <div className="space-y-4 w-[80%] h-[20%] flex flex-row justify-around pt-[50px]">
         <div className="text-black w-full font-bold text-5xl">
           Mini Marathon
           <div className="text-gray-500 w-[100%] text-2xl font-semibold my-5">
