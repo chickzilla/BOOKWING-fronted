@@ -1,5 +1,5 @@
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-
+import Link from "next/link";
 export default function HomeCardItem({
   title,
   description,
@@ -8,7 +8,10 @@ export default function HomeCardItem({
   description: string;
 }) {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full text-center m-auto hover:scale-110 hover:cursor-pointer  transition-all duration-300 py-2">
+    <Link
+      href="/runningType/1"
+      className="flex flex-col justify-center items-center w-full h-full text-center m-auto hover:scale-110 hover:cursor-pointer  transition-all duration-300 py-2"
+    >
       <div className="w-full h-[60%]">
         <DirectionsRunIcon
           className="icon transition-transform transform-gpu "
@@ -19,6 +22,6 @@ export default function HomeCardItem({
       <div className="text-black text-gray-500 h-[20%] w-full">
         {description}
       </div>
-    </div>
+    </Link>
   );
 }
