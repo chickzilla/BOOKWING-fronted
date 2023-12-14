@@ -1,18 +1,13 @@
-import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
+
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 
 export default function OrganizeDetail() {
     return (
-        <div className='w-[80%] h-[40%] flex flex-row items-center'>
-            <div className='bg-white w-[100%] h-[40%] shadow-md shadow-gray-500 flex flex-row justify-around items-center '>
-                <div className=' w-[10%] h-[40%]'>
-                    <Chip sx={{ width: 1, height: 1, fontSize: 20, fontWeight: '500', p: 1 }}
-                        avatar={<Avatar alt="cover" src="/img/myImg.jpg" />}
-                        label="My Name"
-                        variant="outlined"
-                    />
-                </div>
-
+        <div className='w-[80%] h-[50%] flex flex-row items-center mt-30 overflow-hidden'>
+            
+            <div className='bg-white w-[100%] h-[80%] shadow-md shadow-gray-200 text-black overflow-hidden rounded-lg'>
+                <h1 className='text-5xl px-10 pt-10'>About the Event</h1>
+                <p className='text-xl px-10 py-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maiores voluptatum excepturi, assumenda fugit provident perferendis culpa molestias placeat dolore sed praesentium illum quibusdam incidunt eaque dolores necessitatibus aperiam alias.</p>
             </div>
         </div>
     );
