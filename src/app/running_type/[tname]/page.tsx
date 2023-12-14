@@ -8,7 +8,7 @@ export default function TypePage({ params }: { params: { tname: string } }) {
             10.5 KM
           </div>
         </div>
-        <div className="text-[#8B0000] w-full font-bold text-7xl text-center">
+        <div className="text-[#8B0000] w-full font-bold text-7xl text-end">
           69
           <div className="text-gray-500 w-[100%] text-4xl my-5 inline mx-10 ">
             EVENT
