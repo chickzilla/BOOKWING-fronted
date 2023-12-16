@@ -3,7 +3,7 @@ import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 
 export default function OrganizeDetail() {
     return (
-        <div className='w-[80%] h-[50%] flex flex-row items-center mt-30 overflow-hidden'>
+        <div className='w-[80%] h-[40vh] flex flex-row items-center mt-30 overflow-hidden'>
             
             <div className='bg-white w-[100%] h-[80%] shadow-md shadow-gray-200 text-black overflow-hidden rounded-lg'>
                 <h1 className='text-5xl px-10 pt-10'>About the Event</h1>

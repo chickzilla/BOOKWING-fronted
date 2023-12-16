@@ -1,11 +1,10 @@
-import BasicSelect from '@/components/detailPage/dropBox';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Image from 'next/image';
 export default function RunningDetail({eventName ,date} : {eventName :string,date:string}) {
     return (
-        <div className='flex flex-row w-[80%] h-[60%] shadow-md shadow-gray-200 mt-20 overflow-hidden rounded-lg'>
+        <div className='flex flex-row w-[80%] h-[60vh] shadow-md shadow-gray-200 p-30 overflow-hidden rounded-lg'>
             <div className='w-[40%] h-[100%] overflow-hidden'>
                 <Image 
                     src='/img/head_picture.jpg'
