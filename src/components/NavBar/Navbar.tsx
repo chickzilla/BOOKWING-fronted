@@ -1,7 +1,7 @@
 import RunCircleIcon from "@mui/icons-material/RunCircle";
 import Link from "next/link";
 import NavbarAuth from "./NavbarAuth";
-import NavbarTypes from "./NavbarTypes";
+import NavbarDropdown from "./NavbarDropdown";
 
 export default function Navbar() {
   return (
@@ -21,7 +21,7 @@ export default function Navbar() {
         </div>
       </Link>
       <div className="w-[20%] h-[100%]">
-        <NavbarTypes />
+        <NavbarDropdown />
       </div>
       <div className="w-[20%] h-[100%]">
         <NavbarAuth />
