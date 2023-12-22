@@ -1,12 +1,12 @@
 import RunCircleIcon from "@mui/icons-material/RunCircle";
 import Link from "next/link";
-import NavbarText from "./NavbarIText";
+import NavbarAuth from "./NavbarAuth";
 
 export default function Navbar() {
   return (
-    <nav className="bg-[#B22222] fixed w-full h-[70px] z-20 top-0 start-0 flex flex-row items-center">
+    <nav className="bg-[#B22222] fixed w-full h-[70px] z-20 top-0 start-0 flex flex-row items-center justify-between">
       <Link href="../">
-        <div className="h-full w-[22%] text-center flex items-center font-bold text-xl p-2">
+        <div className="h-full w-[22%] text-center flex items-center font-bold text-xl pt-2 px-5">
           <RunCircleIcon
             sx={{
               color: "white",
@@ -19,9 +19,7 @@ export default function Navbar() {
           BookWing
         </div>
       </Link>
-      <div className="h-full w-[78%] flex flex-row justify-around items-center">
-        <NavbarText title="Sign up" link="/loginRegister/loginPage" />
-      </div>
+      <NavbarAuth />
     </nav>
   );
 }
