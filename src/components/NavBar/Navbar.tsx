@@ -21,7 +21,7 @@ export default function Navbar() {
         </div>
       </Link>
       <div className="w-[20%] h-[100%] flex flex-row justify-center items-center space-x-2">
-        <Link href="">Map</Link>
+        <Link href="/mapPage">Map</Link>
         <NavbarDropdown />
       </div>
       <div className="w-[20%] h-[100%]">
