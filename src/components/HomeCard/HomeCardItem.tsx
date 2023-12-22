@@ -3,13 +3,15 @@ import Link from "next/link";
 export default function HomeCardItem({
   title,
   description,
+  link,
 }: {
   title: string;
   description: string;
+  link: string;
 }) {
   return (
     <Link
-      href={`/running_type/${title}`}
+      href={`/running_type/${link}`}
       className="flex flex-col justify-center items-center w-full h-full text-center m-auto hover:scale-110 hover:cursor-pointer  transition-all duration-300 py-2"
     >
       <div className="w-full h-[60%]">

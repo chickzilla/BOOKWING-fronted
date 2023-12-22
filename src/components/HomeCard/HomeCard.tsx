@@ -17,6 +17,7 @@ import "swiper/css";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import EventType_Data from "@/data/eventType";
 
 export default function HomeCard() {
   return (
@@ -43,46 +44,15 @@ export default function HomeCard() {
         loop={true}
         className="m-auto w-full h-full overflow-visible"
       >
-        <SwiperSlide className="">
-          {" "}
-          <HomeCardItem title="Fun Run" description="<= 5 km" />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title=" Mini Marathon" description="10.5 km" />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="Half Marathon" description="21 km" />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="Full Marathon" description="42 km" />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="Ultra Marathon" description="> 42 km" />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="Trail Running" description="" />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="City Run" description="" />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="Cross Country" description="" />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="Spartan" description="" />{" "}
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <HomeCardItem title="Triathlon" description="" />{" "}
-        </SwiperSlide>
+        {EventType_Data.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <HomeCardItem
+              title={slide.title}
+              description={slide.description}
+              link={slide.link}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="custom-next" style={{ color: "black" }}>

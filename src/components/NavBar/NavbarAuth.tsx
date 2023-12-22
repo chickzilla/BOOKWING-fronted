@@ -7,7 +7,7 @@ export default function NavbarAuth() {
   //mock session
   const [session, setSession] = useState(false);
   return (
-    <div className="h-full w-[20%] flex flex-row items-center text-white font-md">
+    <div className="h-full w-[100%] flex flex-row items-center text-white font-md">
       <div className="w-[50%] h-[100%] flex items-center justify-center">
         <Link
           href="/register"
