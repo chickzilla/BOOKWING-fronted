@@ -18,9 +18,9 @@ export default function NavbarAuth() {
       </div>
       <div className="w-[50%] text-center">
         {session ? (
-          <Link href="/login"> Sign out </Link>
+          <Link href="/login" className="border border-white p-2 hover:bg-white hover:text-[#B22222] transition duration-300 rounded-md"> Sign out </Link>
         ) : (
-          <Link href="/login"> Sign in </Link>
+          <Link href="/login" className="border border-white p-2 hover:bg-white hover:text-[#B22222] transition duration-300 rounded-md"> Sign in </Link>
         )}
       </div>
     </div>
