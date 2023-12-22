@@ -1,5 +1,6 @@
 import RunCircleIcon from "@mui/icons-material/RunCircle";
 import Link from "next/link";
+import NavbarText from "./NavbarIText";
 
 export default function Navbar() {
   return (
@@ -18,6 +19,9 @@ export default function Navbar() {
           BookWing
         </div>
       </Link>
+      <div className="h-full w-[78%] flex flex-row justify-around items-center">
+        <NavbarText title="Sign up" link="/loginRegister/loginPage" />
+      </div>
     </nav>
   );
 }
