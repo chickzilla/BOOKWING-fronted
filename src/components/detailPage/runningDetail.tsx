@@ -21,7 +21,7 @@ export default function RunningDetail({eventName ,date} : {eventName :string,dat
                 />  
             </div>
             <div className='w-[60%] h-[100%]' >
-                <h1 className='text-4xl pt-10 pb-3 px-8 font-bold text-black'>
+                <h1 className='text-5xl pt-10 pb-3 px-8 font-bold text-black'>
                     Event Name
                 </h1>
                 <p className='text-2xl pt-5 pb-2 px-8 font-normal text-gray-900'>
