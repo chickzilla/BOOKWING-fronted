@@ -21,7 +21,7 @@ import EventType_Data from "@/data/eventType";
 
 export default function HomeCard() {
   return (
-    <div className="px-2 mx-auto mt-10 bg-white rounded-xl shadow-md space-x-4 w-[100%] h-[20vh] flex items-center justify-center text-center border-2 border-black ">
+    <div className="px-2 mx-auto mt-10 bg-white rounded-xl shadow-md space-x-4 w-[100%] h-[70%] flex items-center justify-center text-center border-2 border-black ">
       <div className="custom-prev" style={{ color: "black" }}>
         <NavigateBeforeIcon />
       </div>

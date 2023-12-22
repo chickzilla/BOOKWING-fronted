@@ -1,4 +1,3 @@
-import Image from "next/image";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import InfoIcon from "@mui/icons-material/Info";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
@@ -6,7 +5,7 @@ import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 
 export default function HomeSlogan() {
   return (
-    <div className="w-[80%] h-[10%] space-x-12 items-center mt-24 mb-10 flex flex-col text-black font-bold text-4xl">
+    <div className="w-[80%] h-[20vh] space-x-12 items-center mt-24 mb-10 flex flex-col text-black font-bold text-4xl">
       Why use BookWing ?
       <div className="w-[100%] h-[100%] flex flex-row justify-between mt-10">
         <div className="w-[25%] text-black text-base font-normal flex flex-col justify-center items-center ">
