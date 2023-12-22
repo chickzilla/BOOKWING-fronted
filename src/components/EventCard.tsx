@@ -24,15 +24,17 @@ export default function EventCard({ eventid }: { eventid: string }) {
           <DirectionsRunIcon /> 5 km - 10 km
         </div>
       </div>
-      <Image
-        className="object-cover w-full h-96 md:h-auto md:w-48 "
-        src="/img/head_picture.jpg"
-        alt="Picture of the closing event"
-        priority
-        sizes="500vh"
-        width={100}
-        height={100}
-      />
+      <div>
+        <Image
+          className="object-cover w-full h-96 md:h-auto md:w-48 "
+          src="/img/head_picture.jpg"
+          alt="Picture of the closing event"
+          priority
+          sizes="100"
+          width={100}
+          height={100}
+        />
+      </div>
     </Link>
   );
 }

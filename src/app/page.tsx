@@ -16,6 +16,7 @@ export default function Home() {
         <MapHome />
         <ClosingMain />
         <HomeSlogan />
+        <PictureSlogan />
       </main>
     </>
   );
