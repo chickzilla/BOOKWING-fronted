@@ -2,6 +2,7 @@ import HomeHeader from "@/components/HomeCard/HomeHeader";
 import MapHome from "@/components/GGMap/MapHome";
 import ClosingMain from "@/components/Closing/ClosingMain";
 import HomeCardWithText from "@/components/HomeCard/HomeCardWithText";
+import HomeSlogan from "@/components/AboutUs/HomeSlogan";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <HomeCardWithText />
         <MapHome />
         <ClosingMain />
+        <HomeSlogan />
       </main>
     </>
   );
