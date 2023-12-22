@@ -20,7 +20,8 @@ export default function Navbar() {
           BookWing
         </div>
       </Link>
-      <div className="w-[20%] h-[100%]">
+      <div className="w-[20%] h-[100%] flex flex-row justify-center items-center space-x-2">
+        <Link href="">Map</Link>
         <NavbarDropdown />
       </div>
       <div className="w-[20%] h-[100%]">

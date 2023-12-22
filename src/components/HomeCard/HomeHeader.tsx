@@ -2,7 +2,7 @@ import SearchBar from "./SearchBar";
 
 export default function HomeHeader() {
   return (
-    <div className="w-full h-[35vh] flex flex-col bg-gradient-to-b from-[#B22222] to-[#FA8072] space-y-12">
+    <div className="w-full h-[40vh] flex flex-col bg-gradient-to-b from-[#B22222] to-[#FA8072] space-y-12 pt-12">
       {/*<div className="w-full h-[40%] flex items-center justify-center text-center my-10">
         <Banner />
   </div>*/}

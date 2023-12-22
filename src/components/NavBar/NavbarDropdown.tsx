@@ -17,7 +17,7 @@ export default function NavbarDropdown() {
   };
 
   return (
-    <div className="w-full h-full flex items-center justify-center text-center hover:cursor-pointer">
+    <div className="w-full flex items-center justify-center text-center hover:cursor-pointer">
       <div
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
