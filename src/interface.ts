@@ -1,5 +1,5 @@
 export interface Event {
-  id: number;
+  id: string;
   name: string;
   longitude: number;
   latitude: number;
@@ -7,4 +7,8 @@ export interface Event {
   picture: string;
   province: string;
   date: string;
+}
+
+export interface EventList {
+  Event: Event[];
 }
