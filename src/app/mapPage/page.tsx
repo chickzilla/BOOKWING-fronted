@@ -1,6 +1,14 @@
 "use client";
-import Map, { NavigationControl, GeolocateControl } from "react-map-gl";
+import Map, {
+  NavigationControl,
+  GeolocateControl,
+  Marker,
+  Popup,
+  FullscreenControl,
+} from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { useState, useRef, useMemo, useCallback } from "react";
+import mapboxgl from "mapbox-gl";
 
 export default function MapPage() {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
@@ -9,6 +17,9 @@ export default function MapPage() {
     width: "100%",
     height: "400vh",
   };
+
+  const markerRef = useRef<mapboxgl.Marker>();
+
   return (
     <main className="bg-neutral-100 w-full h-[400vh] pt-[70px]">
       <Map
@@ -23,8 +34,16 @@ export default function MapPage() {
         minZoom={3}
         style={mapStyle}
       >
+        <FullscreenControl position="top-right" />
         <GeolocateControl position="top-left" />
         <NavigationControl position="top-left" />
+        <Marker
+          longitude={100.5018}
+          latitude={13.7653}
+          color="red"
+          onClick={(e) => alert("Hello")}
+        ></Marker>
+        <Marker longitude={101} latitude={14} color="red"></Marker>
       </Map>
     </main>
   );
