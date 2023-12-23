@@ -32,6 +32,7 @@ export default function MapAllLocation({
         color="red"
         onClick={() => {
           onMarckerClicked(event.id);
+          console.log("event id", event.id);
         }}
       />
     ));

@@ -1,19 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import getEventByID from "@/libs/getEventByID";
+import { useEffect, useState } from "react";
 import { Event } from "@/interface";
-import eventDetail from "@/data/eventsDetail";
-
-const eventDetailData = eventDetail;
 
 export default function MapAllCard({ EventId }: { EventId: string | null }) {
   if (!EventId) {
     return null;
   }
+  const [eventDetail, setEventDetail] = useState<Event | null>(null);
 
-  const eventDetail = eventDetailData.find((e) => e.id === EventId);
+  useEffect(() => {
+    const fetchEventByID = async () => {
+      try {
+        const data = await getEventByID(EventId);
+        setEventDetail(data);
+        console.log("data card after fetch", data);
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
+    fetchEventByID();
+  }, [EventId]);
 
   return (
     <div className="w-[30%] h-[100vh] flex fixed items-center justify-center start-0 top-0 z-10 pt-[70px]">
