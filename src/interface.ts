@@ -1,20 +1,10 @@
-export interface AirportItem {
-  code: string;
-  lat: string;
-  lon: string;
+export interface Event {
+  id: number;
   name: string;
-  city: string;
-  state: string;
-  country: string;
-  woeid: string;
-  tz: string;
-  phone: string;
+  longitude: number;
+  latitude: number;
   type: string;
-  email: string;
-  url: string;
-  runway_length: string;
-  elev: string;
-  icao: string;
-  direct_flights: string;
-  carriers: string;
+  picture: string;
+  province: string;
+  date: string;
 }
