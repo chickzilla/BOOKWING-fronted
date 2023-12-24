@@ -14,6 +14,12 @@ export interface EventName {
   name: string;
 }
 
+export interface TypeEvent {
+  title: string;
+  description: string;
+  link: string;
+}
+
 export interface EventList {
   Event: Event[];
 }

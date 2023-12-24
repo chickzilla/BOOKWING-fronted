@@ -7,7 +7,7 @@ export default async function getAllEventName() {
     throw new Error("Fail to fetch ALL event Name");
   }
 
-  console.log("response all name", response);
+  //console.log("response all name", response);
 
   return await response.json();
 }
