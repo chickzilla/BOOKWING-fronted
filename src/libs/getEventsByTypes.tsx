@@ -1,6 +1,6 @@
-import { BackendUrl } from "@/const";
+//import { BackendUrl } from "@/const";
 
-//const BackendUrl = process.env.BACKEND_URL;
+const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default async function getEventsByTypes(type: string) {
   //console.log("backend url", BackendUrl);
