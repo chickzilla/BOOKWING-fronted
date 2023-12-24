@@ -2,9 +2,9 @@
 
 import MapAllLocation from "@/components/GGMap/MapAllLocation";
 import MapAllCard from "@/components/GGMap/MapAllCard";
-import eventDetail from "@/data/eventsDetail";
 import { useEffect, useState } from "react";
 import getAllEvent from "@/libs/getAllEvent";
+import getAllLocation from "@/libs/getAllLocation";
 
 export default function MapPage() {
   const [eventDetailId, setEventDetailId] = useState<string | null>(null);
@@ -13,12 +13,10 @@ export default function MapPage() {
   useEffect(() => {
     const fetchAllEvent = async () => {
       try {
-        const data = await getAllEvent();
+        const data = await getAllLocation();
         setEventDetailData(data);
-        console.log("data all", data);
-      } catch (error) {
-        console.error("Error fetching event data:", error);
-      }
+        console.log("data all location", data);
+      } catch (error) {}
     };
     fetchAllEvent();
   }, []);

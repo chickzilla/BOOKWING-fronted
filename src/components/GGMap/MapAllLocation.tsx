@@ -7,13 +7,14 @@ import Map, {
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Event } from "@/interface";
+import { EventLocation } from "@/interface";
 import { useMemo } from "react";
 
 export default function MapAllLocation({
   AllEvent,
   onMarckerClicked,
 }: {
-  AllEvent: Event[];
+  AllEvent: EventLocation[];
   onMarckerClicked: Function;
 }) {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
@@ -22,6 +23,8 @@ export default function MapAllLocation({
     width: "100%",
     height: "100%",
   };
+
+  console.log("AllEvent", AllEvent);
 
   const markers = useMemo(() => {
     return AllEvent.map((event) => (
@@ -32,7 +35,7 @@ export default function MapAllLocation({
         color="red"
         onClick={() => {
           onMarckerClicked(event.id);
-          console.log("event id", event.id);
+          //console.log("event id", event.id);
         }}
       />
     ));

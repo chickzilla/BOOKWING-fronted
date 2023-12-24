@@ -20,10 +20,7 @@ export default function MapAllCard({ EventId }: { EventId: string | null }) {
       try {
         const data = await getEventByID(EventId);
         setEventDetail(data);
-        console.log("data card after fetch", data);
-      } catch (error) {
-        console.error("Error fetching event data:", error);
-      }
+      } catch (error) {}
     };
     fetchEventByID();
   }, [EventId]);

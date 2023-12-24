@@ -14,6 +14,12 @@ export interface EventName {
   name: string;
 }
 
+export interface EventLocation {
+  id: string;
+  longitude: number;
+  latitude: number;
+}
+
 export interface TypeEvent {
   title: string;
   description: string;
