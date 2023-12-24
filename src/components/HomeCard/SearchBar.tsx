@@ -4,9 +4,11 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { useState, useEffect } from "react";
 import getAllEventName from "@/libs/getAllEventName";
 import { EventName } from "@/interface";
+import { useRouter } from "next/navigation";
 
 export default function SearchBar() {
   const [NameData, setNameData] = useState([]);
+  const rounter = useRouter();
 
   useEffect(() => {
     const fetchAllEvent = async () => {
@@ -33,13 +35,18 @@ export default function SearchBar() {
         onChange={(event, newValue) => {
           if (typeof newValue === "string") {
             setSearch(newValue);
-            console.log(newValue);
+
+            NameData.map((subEventName: EventName) => {
+              if (subEventName.name === newValue) {
+                rounter.push(`/runningevent/${subEventName.id}`);
+              }
+            });
           }
         }}
         renderInput={(params) => (
           <TextField
             {...params}
-            placeholder="🔍 Event, Organizer, Location"
+            placeholder="🔍 Event Name"
             sx={{
               "& .MuiInputBase-root": {
                 border: "2px solid ", // Set your desired border color

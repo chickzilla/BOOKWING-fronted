@@ -31,7 +31,7 @@ export default function MapAllCard({ EventId }: { EventId: string | null }) {
   return (
     <div className="w-[30%] h-[100vh] flex fixed items-center justify-center start-0 top-0 z-10 pt-[70px]">
       <div className="w-[80%] h-[75%] bg-white rounded-lg flex flex-col opacity-80 hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105">
-        <Link href="/runningevent/1" className="w-[100%] h-[100%]">
+        <Link href={`/runningevent/${EventId}`} className="w-[100%] h-[100%]">
           <div className="w-[100%] h-[50%]">
             <Image
               src="/img/run_themoon.png"
