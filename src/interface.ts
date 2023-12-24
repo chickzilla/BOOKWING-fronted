@@ -9,6 +9,11 @@ export interface Event {
   date: string;
 }
 
+export interface EventName {
+  id: string;
+  name: string;
+}
+
 export interface EventList {
   Event: Event[];
 }
