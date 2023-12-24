@@ -10,15 +10,14 @@ export default async function TypePage({
 }: {
   params: { tname: string };
 }) {
-  const Events = await getEventsByTypes(params.tname);
-  const count = Events.length;
-  console.log("count", count);
-  console.log("Events", Events);
+  const EventByType = await getEventsByTypes(params.tname);
+  const count = EventByType.length;
+  //console.log("count", count);
+  //console.log("Events", EventByType);
 
   const EventType = EventType_Data.find(
     (e: TypeEvent) => e.link === params.tname
   );
-  //console.log("EventType", EventType);
 
   return (
     <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center mt-[70px] text-black py-16">
@@ -43,7 +42,7 @@ export default async function TypePage({
             <FilterType />
           </div>
           <div className="w-[80%] h-[100%]">
-            <ShowCard />
+            <ShowCard Events={EventByType} />
           </div>
         </div>
       </div>
