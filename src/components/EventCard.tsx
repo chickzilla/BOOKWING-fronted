@@ -28,7 +28,7 @@ export default function EventCard({ Event }: { Event: Event }) {
       <div>
         <Image
           className="object-cover w-full h-96 md:h-auto md:w-48 "
-          src="/img/head_picture.jpg"
+          src={`/img/${Event.picture}`}
           alt="Picture of the closing event"
           priority
           sizes="100"

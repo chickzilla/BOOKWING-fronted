@@ -12,17 +12,6 @@ export default async function Closing() {
           <EventCard Event={event} />
         </div>
       ))}
-
-      {/*<div className="flex flex-col space-y-5 w-[50%] h-[100%]">
-        <EventCard eventid="Rayong1" />
-        <EventCard eventid="Rayong2" />
-        <EventCard eventid="Rayong3" />
-      </div>
-      <div className="flex flex-col space-y-5 w-[50%] h-[100%]">
-        <EventCard eventid="Rayong4" />
-        <EventCard eventid="Rayong5" />
-        <EventCard eventid="Rayong6" />
-  </div>*/}
     </div>
   );
 }
