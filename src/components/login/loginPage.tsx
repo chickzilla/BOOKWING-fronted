@@ -12,8 +12,8 @@ export default function LoginPanel() {
         setPassword(event.target.value);
     };
     return (
-        <main>
-            <div className="w-[25vw] h-[50vh]  text-black shadow-md flex flex-col items-center ">
+        
+            <div className="w-[25vw] h-[50vh] text-black shadow-md flex flex-col items-center ">
                 <div className="pt-12 cursor-default"> <h1 className="text-5xl">Login</h1> </div>
                 <div className="px-20 pt-8 pb-4">
                     <label htmlFor="Username" className="block text-sm font-light px-2 py-1">Username</label>
@@ -46,7 +46,7 @@ export default function LoginPanel() {
                 </div>
                 <div className="w-64 ">
                     {/* use link instead */}
-                    <p className=" pt-2 text-sm text-gray-500 underline ">Forgot Password?</p>
+                    {/* <p className=" pt-2 text-sm text-gray-500 underline ">Forgot Password?</p> */}
                 </div>
                 <div className="px-20 pt-8 pb-2">
                     <button className="bg-black w-[100px] h-[50px] rounded-md outline-none bg-rose-400 text-white  
@@ -60,13 +60,13 @@ export default function LoginPanel() {
                 </div>
                 <div className="w-64 text-center">
                     {/* use link instead */}
-                    <p className=" pt-2 text-sm text-gray-500 inline">
+                    {/* <p className=" pt-2 text-sm text-gray-500 inline">
                         Havn't got account yet? <p className="text-sm text-indigo-500 underline inline">Sign-up</p>
-                    </p>
+                    </p> */}
                 </div>
             </div>
 
 
-        </main>
+        
     );
 }
