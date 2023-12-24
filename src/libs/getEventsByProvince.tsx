@@ -7,7 +7,7 @@ export default async function getEventsByProvince(province: string) {
 
   const response = await fetch(
     `${BackendUrl}/event/province?province=${province}`,
-    { cache: "no-store" }
+    { cache: "no-store", next: { tags: ["events"] } }
   );
   if (!response.ok) {
     throw new Error("Fail to fetch event by province");

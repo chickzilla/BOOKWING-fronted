@@ -4,6 +4,7 @@ const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default async function getAllEventName() {
   const response = await fetch(`${BackendUrl}/event/name`, {
+    next: { tags: ["events"] },
     cache: "no-store",
   });
   //console.log("backend url", BackendUrl);
