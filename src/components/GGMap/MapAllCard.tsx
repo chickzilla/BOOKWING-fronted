@@ -64,7 +64,7 @@ export default function MapAllCard({ EventId }: { EventId: string | null }) {
               <CalendarMonthIcon sx={{ marginRight: "5px" }} />{" "}
               {eventDetail?.date}
             </div>
-            <div className="w-[100%] h-[20%] flex flex-row items-center text-xl">
+            <div className="w-[100%] h-[20%] flex flex-row items-center text-md">
               <DirectionsRunIcon sx={{ marginRight: "5px" }} />{" "}
               {eventTypes.join(", ")}
             </div>
