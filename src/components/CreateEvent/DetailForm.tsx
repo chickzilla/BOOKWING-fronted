@@ -6,11 +6,13 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 export default function DetailForm({
   setParentDescription,
+  setParentPicture,
 }: {
   setParentDescription: Function;
+  setParentPicture: Function;
 }) {
   const [fieldDescription, setFieldDescription] = useState<string>("");
-  const [fieldPicture, setFieldPicture] = useState<string>("");
+  const [fieldPicture, setFieldPicture] = useState<File | null>(null);
 
   return (
     <div className="w-[60%] h-[20%] bg-white bg-white rounded-xl shadow-xl flex flex-row py-10 items-center">
@@ -41,10 +43,13 @@ export default function DetailForm({
               accept="image/png, image/jpeg, image/jpg"
               id="icon-button-file"
               type="file"
-              hidden
               onChange={(e) => {
-                setFieldPicture(e.target.value);
-                console.log(e.target.value);
+                if (e.target.files && e.target.files.length > 0) {
+                  setFieldPicture(e.target.files[0]);
+                  setParentPicture(e.target.files[0]);
+
+                  //console.log("Selected file:", e.target.files[0]);
+                }
               }}
             />
           </label>

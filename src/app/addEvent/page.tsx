@@ -7,8 +7,9 @@ import PackageForm from "@/components/CreateEvent/PackageForm";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { Event } from "@/interface";
-import createEvent from "@/libs/createEvent";
 import { useRouter } from "next/navigation";
+import uploadFile from "@/libs/uploadFile";
+import createEvent from "@/libs/createEvent";
 
 export default function CreateEventPage() {
   const [selectName, setSelectName] = useState<string>("");
@@ -21,6 +22,8 @@ export default function CreateEventPage() {
   const [selectPicture, setSelectPicture] = useState<string>("run_themoon.png");
   const [selectlatitude, setSelectlatitude] = useState<number>(11.0);
   const [selectlongitude, setSelectlongitude] = useState<number>(11.0);
+
+  const [selectPictureFile, setSelectPictureFile] = useState<File | null>(null);
 
   const router = useRouter();
 
@@ -56,9 +59,13 @@ export default function CreateEventPage() {
         longitude: selectlongitude,
       };
       try {
+        const file = await uploadFile(selectPictureFile);
+        //console.log(file.url);
+        data.picture = file.url;
         const response = await createEvent(data);
-        console.log(response);
+        //console.log(response);
         router.push("/");
+        //console.log(selectPictureFile);
       } catch (error) {
         console.log(error);
       }
@@ -82,6 +89,9 @@ export default function CreateEventPage() {
         <DetailForm
           setParentDescription={(value: string) => {
             setAllDescription(value);
+          }}
+          setParentPicture={(value: File) => {
+            setSelectPictureFile(value);
           }}
         />
         <DateandLocationForm
