@@ -4,7 +4,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Image from 'next/image';
 import { useState } from 'react';
-export default function RunningDetail({ eventName, date , imageList }: { eventName: string, date: string ,imageList:Array<string>}) {
+export default function RunningDetail({ eventName, date  }: { eventName: string, date: string }) {
 
     return (
         <div className='flex flex-row w-[80vw] h-[60vh] p-30 overflow-hidden '>
