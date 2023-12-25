@@ -61,7 +61,7 @@ export default function DetailForm({
               setFieldDescription(e.target.value);
               setParentDescription(e.target.value);
             }}
-            minRows={5}
+            minRows={8}
             maxRows={20}
             sx={{ width: "100%", height: "100%" }}
           />

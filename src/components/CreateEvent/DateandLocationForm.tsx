@@ -27,7 +27,7 @@ export default function DateandLocationForm({
   return (
     <div className="w-[60%] h-[20%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
       <div className="w-[80%] h-[40%] flex flex-row justify-center items-center">
-        <div className="w-[50%] h-[100%] flex flex-col space-y-4">
+        <div className="w-[50%] h-[100%] flex flex-col">
           <InputLabel>selectProvince</InputLabel>
           <Select
             labelId="province-select-label"
@@ -46,7 +46,7 @@ export default function DateandLocationForm({
             ))}
           </Select>
         </div>
-        <div className="w-[50%] h-[100%] flex flex-col flex flex-row space-y-4 pl-5">
+        <div className="w-[50%] h-[100%] flex flex-col flex flex-row pl-5">
           <InputLabel>Date and Time</InputLabel>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div className="w-[100%] flex flex-row space-x-2 justify-center">

@@ -58,9 +58,9 @@ export default function CreateEventPage() {
   };
 
   return (
-    <main className="bg-neutral-100 w-full h-[200vh] flex flex-col items-center py-[70px] text-black">
+    <main className="bg-neutral-100 w-full h-[250vh] flex flex-col items-center py-[70px] text-black">
       <div className="w-[100%] h-[100%] flex flex-col items-center pt-[60px] space-y-10">
-        <div className="text-4xl text-black font-semibold w-[60%] h-[10%]">
+        <div className="text-4xl text-black font-semibold w-[60%] h-[5%]">
           New Event
         </div>
         <CreateEventForm
@@ -92,12 +92,15 @@ export default function CreateEventPage() {
             setSelectPackage(value);
           }}
         />
-        <div className="w-[60%] h-[5%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
+        <div className="w-[60%] h-[5%] flex flex-col items-center ">
           <Button
             variant="contained"
-            sx={{ width: "80%", height: "100%" }}
+            sx={{ width: "100%", height: "100%" }}
             onClick={SubmitHandler}
-          />
+            className="bg-[#CD5C5C] hover:bg-[#B22222]"
+          >
+            Create new event
+          </Button>
         </div>
       </div>
     </main>
