@@ -30,16 +30,18 @@ export default function EventCard({ Event }: { Event: Event }) {
           <DirectionsRunIcon /> {eventTypes.join(", ")}
         </div>
       </div>
-      <div className="w-[50%] h-[100%] flex items-end justify-end">
-        <Image
-          className="object-cover w-full h-full md:w-48 "
-          src={`${Event.picture}`}
-          alt="Picture of the closing event"
-          priority
-          sizes="100"
-          width={100}
-          height={100}
-        />
+      <div className="w-[50%] h-[100%] flex items-center justify-end ">
+        <div className="w-[30%] h-[80%]">
+          <Image
+            className="w-full h-full md:w-48 object-cover"
+            src={`${Event.picture}`}
+            alt="Picture of the closing event"
+            priority
+            sizes="100"
+            width={100}
+            height={100}
+          />
+        </div>
       </div>
     </Link>
   );

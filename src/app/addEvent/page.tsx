@@ -19,7 +19,7 @@ export default function CreateEventPage() {
   const [selectDate, setSelectDate] = useState<string>("");
   const [selectTime, setSelectTime] = useState<string>("");
   const [selectPackage, setSelectPackage] = useState<string[]>([]);
-  const [selectPicture, setSelectPicture] = useState<string>("run_themoon.png");
+  const [selectPicture, setSelectPicture] = useState<string>("No picture");
   const [selectlatitude, setSelectlatitude] = useState<number>(11.0);
   const [selectlongitude, setSelectlongitude] = useState<number>(11.0);
 
@@ -39,7 +39,7 @@ export default function CreateEventPage() {
       !selectDate ||
       !selectTime ||
       !selectPackage ||
-      !selectPicture ||
+      !selectPictureFile ||
       !selectlatitude ||
       !selectlongitude
     ) {
