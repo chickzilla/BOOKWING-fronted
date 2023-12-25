@@ -4,8 +4,13 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import Link from "next/link";
 import { Event } from "@/interface";
+import EventType_Data from "@/data/eventType";
 
 export default function EventCard({ Event }: { Event: Event }) {
+  const eventTypes = Event.type.map((type) => {
+    const eventType = EventType_Data.find((event) => event.link === type);
+    return eventType ? eventType.title : type;
+  });
   return (
     <Link
       href={`/runningevent/${Event.id}`}
@@ -22,7 +27,7 @@ export default function EventCard({ Event }: { Event: Event }) {
           <CalendarMonthIcon /> {Event.date}
         </div>
         <div className="text-sm text-gray-500">
-          <DirectionsRunIcon /> {Event.type}
+          <DirectionsRunIcon /> {eventTypes.join(", ")}
         </div>
       </div>
       <div>

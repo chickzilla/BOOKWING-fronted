@@ -3,6 +3,10 @@
 import { useState } from "react";
 import EventType_Data from "@/data/eventType";
 import { Select, MenuItem } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { TimeField } from "@mui/x-date-pickers/TimeField";
 
 export default function TypesFrom() {
   const [selectType, setSelectType] = useState("Bangkok");
@@ -16,6 +20,10 @@ export default function TypesFrom() {
             </MenuItem>
           ))}
         </Select>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker label="Event Date" />
+          <TimeField label="Start time" format="HH:mm" />{" "}
+        </LocalizationProvider>
       </div>
     </div>
   );

@@ -8,20 +8,33 @@ import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import getEventByID from "@/libs/getEventByID";
 import { useEffect, useState } from "react";
 import { Event } from "@/interface";
+import EventType_Data from "@/data/eventType";
 
 export default function MapAllCard({ EventId }: { EventId: string | null }) {
   if (!EventId) {
     return null;
   }
   const [eventDetail, setEventDetail] = useState<Event | null>(null);
+  const [eventTypes, setEventTypes] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchEventByID = async () => {
       try {
         const data = await getEventByID(EventId);
         setEventDetail(data);
+        if (data !== null) {
+          const eventTypes: string[] = data.type.map((type: string) => {
+            const eventType = EventType_Data.find(
+              (event) => event.link === type
+            );
+            return eventType ? eventType.title : type;
+          });
+
+          setEventTypes(eventTypes);
+        }
       } catch (error) {}
     };
+
     fetchEventByID();
   }, [EventId]);
 
@@ -53,7 +66,7 @@ export default function MapAllCard({ EventId }: { EventId: string | null }) {
             </div>
             <div className="w-[100%] h-[20%] flex flex-row items-center text-xl">
               <DirectionsRunIcon sx={{ marginRight: "5px" }} />{" "}
-              {eventDetail?.type}
+              {eventTypes.join(", ")}
             </div>
           </div>
         </Link>

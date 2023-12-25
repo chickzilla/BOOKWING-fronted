@@ -3,7 +3,7 @@ export interface Event {
   name: string;
   longitude: number;
   latitude: number;
-  type: string;
+  type: string[];
   picture: string;
   province: string;
   date: string;
