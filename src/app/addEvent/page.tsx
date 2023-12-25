@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { Event } from "@/interface";
 import createEvent from "@/libs/createEvent";
+import { useRouter } from "next/navigation";
 
 export default function CreateEventPage() {
   const [selectName, setSelectName] = useState<string>("");
@@ -20,6 +21,8 @@ export default function CreateEventPage() {
   const [selectPicture, setSelectPicture] = useState<string>("run_themoon.png");
   const [selectlatitude, setSelectlatitude] = useState<number>(11.0);
   const [selectlongitude, setSelectlongitude] = useState<number>(11.0);
+
+  const router = useRouter();
 
   const [submit, setSubmit] = useState<boolean>(false);
 
@@ -52,8 +55,13 @@ export default function CreateEventPage() {
         latitude: selectlatitude,
         longitude: selectlongitude,
       };
-      const response = await createEvent(data);
-      console.log(response);
+      try {
+        const response = await createEvent(data);
+        console.log(response);
+        router.push("/");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -97,9 +105,9 @@ export default function CreateEventPage() {
             variant="contained"
             sx={{ width: "100%", height: "100%" }}
             onClick={SubmitHandler}
-            className="bg-[#CD5C5C] hover:bg-[#B22222]"
+            className="hover:bg-[#CD5C5C] bg-[#B22222] text-xl text-white"
           >
-            Create new event
+            Add new
           </Button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import ClosingMain from "@/components/Closing/ClosingMain";
 import HomeCardWithText from "@/components/HomeCard/HomeCardWithText";
 import HomeSlogan from "@/components/AboutUs/HomeSlogan";
 import PictureSlogan from "@/components/AboutUs/PictureSlogan";
+import CreateHome from "@/components/CreateEvent/CreateHome";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <HomeCardWithText />
         <MapHome />
         <ClosingMain />
+        <CreateHome />
         <HomeSlogan />
         <PictureSlogan />
       </main>
