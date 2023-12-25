@@ -1,6 +1,6 @@
 import CreateEventForm from "@/components/CreateEvent/CreateEventForm";
-import TypesFrom from "@/components/CreateEvent/TypeForm";
 import DetailForm from "@/components/CreateEvent/DetailForm";
+import DateandLocationForm from "@/components/CreateEvent/DateandLocationForm";
 
 export default function CreateEventPage() {
   return (
@@ -10,8 +10,8 @@ export default function CreateEventPage() {
           New Event
         </div>
         <CreateEventForm />
-        <TypesFrom />
         <DetailForm />
+        <DateandLocationForm />
       </div>
     </main>
   );
