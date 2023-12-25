@@ -17,15 +17,23 @@ const MenuProps = {
   },
 };
 
-export default function CreateEventForm() {
+export default function CreateEventForm({
+  SetParentType,
+  SetParentName,
+}: {
+  SetParentType: Function;
+  SetParentName: Function;
+}) {
   const [selectType, setSelectType] = useState<string[]>([]);
   const [allDescription, setAllDescription] = useState<string>("");
+  const [selectName, setSelectName] = useState<string>("");
 
   const handleChange = (event: SelectChangeEvent<typeof selectType>) => {
     const {
       target: { value },
     } = event;
     setSelectType(typeof value === "string" ? value.split(",") : value);
+    SetParentType(typeof value === "string" ? value.split(",") : value);
   };
 
   useEffect(() => {
@@ -38,19 +46,24 @@ export default function CreateEventForm() {
   }, [selectType]);
 
   return (
-    <div className="w-[60%] h-[20%] bg-white bg-white rounded-xl shadow-xl flex flex-col py-10 items-center space-y-5">
+    <div className="w-[60%] h-[25%] bg-white bg-white rounded-xl shadow-xl flex flex-col py-10 items-center space-y-5">
       <div className="w-[80%] h-[50%] flex text-center justify-center items-center">
         <TextField
           id="outlined-basic"
           label="Event Name"
           variant="outlined"
+          value={selectName}
+          onChange={(e) => {
+            setSelectName(e.target.value);
+            SetParentName(e.target.value);
+          }}
           sx={{
             width: "100%",
           }}
         />
       </div>
       <div className="w-[80%] h-[50%] flex flex-row">
-        <div className="w-[50%] h-[100%] flex flex-col justify-start items-start space-y-2">
+        <div className="w-[50%] h-[100%] flex flex-col justify-start items-start ">
           <InputLabel>Select Event Type</InputLabel>
           <Select
             labelId="demo-multiple-name-label"

@@ -4,14 +4,18 @@ import { TextField } from "@mui/material";
 import { useState } from "react";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
-export default function DetailForm() {
+export default function DetailForm({
+  setParentDescription,
+}: {
+  setParentDescription: Function;
+}) {
   const [fieldDescription, setFieldDescription] = useState<string>("");
   const [fieldPicture, setFieldPicture] = useState<string>("");
 
   return (
-    <div className="w-[60%] h-[30%] bg-white bg-white rounded-xl shadow-xl flex flex-row py-10 items-center">
-      <div className="w-[50%] h-[100%] flex flex-col justify-center items-center">
-        <div className="w-[80%] h-[10%] text-black text-lg text-center">
+    <div className="w-[60%] h-[20%] bg-white bg-white rounded-xl shadow-xl flex flex-row py-10 items-center">
+      <div className="w-[50%] h-[100%] flex flex-col justify-center items-center space-y-2">
+        <div className="w-[80%] h-[10%] text-black text-md text-center">
           Upload picture
         </div>
         <div className="w-[80%] h-[10%] text-black text-xs text-center text-gray-500">
@@ -38,6 +42,10 @@ export default function DetailForm() {
               id="icon-button-file"
               type="file"
               hidden
+              onChange={(e) => {
+                setFieldPicture(e.target.value);
+                console.log(e.target.value);
+              }}
             />
           </label>
         </div>
@@ -49,8 +57,11 @@ export default function DetailForm() {
             label="Event Description"
             multiline
             defaultValue={fieldDescription}
-            onChange={(e) => setFieldDescription(e.target.value)}
-            minRows={10}
+            onChange={(e) => {
+              setFieldDescription(e.target.value);
+              setParentDescription(e.target.value);
+            }}
+            minRows={5}
             maxRows={20}
             sx={{ width: "100%", height: "100%" }}
           />

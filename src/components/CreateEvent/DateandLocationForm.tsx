@@ -10,16 +10,22 @@ import { ThailandProvince } from "@/data/province";
 import InputLabel from "@mui/material/InputLabel";
 import { Dayjs } from "dayjs";
 
-export default function DateandLocationForm() {
+export default function DateandLocationForm({
+  setParentProvince,
+  setParentDate,
+  setParentTime,
+}: {
+  setParentProvince: Function;
+  setParentDate: Function;
+  setParentTime: Function;
+}) {
   const [selectProvince, setSelectProvince] = useState("Bangkok");
   const [selectDate, setSelectDate] = useState<Dayjs | null>(null);
-  const [DateString, setDateString] = useState<string>("");
 
   const [selectTime, setSelectTime] = useState<Dayjs | null>(null);
-  const [TimeString, setTimeString] = useState<string>("");
 
   return (
-    <div className="w-[60%] h-[30%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
+    <div className="w-[60%] h-[20%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
       <div className="w-[80%] h-[40%] flex flex-row justify-center items-center">
         <div className="w-[50%] h-[100%] flex flex-col space-y-4">
           <InputLabel>selectProvince</InputLabel>
@@ -29,7 +35,8 @@ export default function DateandLocationForm() {
             value={selectProvince}
             onChange={(e) => {
               setSelectProvince(e.target.value as string);
-              console.log(e.target.value);
+              setParentProvince(e.target.value as string);
+              //console.log(e.target.value);
             }}
           >
             {ThailandProvince.map((type, index) => (
@@ -49,7 +56,7 @@ export default function DateandLocationForm() {
                 value={selectDate}
                 onChange={(newValue) => {
                   setSelectDate(newValue);
-                  setDateString(newValue?.format("DD/MMM/YYYY") as string);
+                  setParentDate(newValue?.format("DD/MMM/YYYY") as string);
                 }}
               />
               <TimeField
@@ -59,7 +66,7 @@ export default function DateandLocationForm() {
                 value={selectTime}
                 onChange={(newValue) => {
                   setSelectTime(newValue);
-                  setTimeString(newValue?.format("HH:mm") as string);
+                  setParentTime(newValue?.format("HH:mm") as string);
                 }}
               />
             </div>

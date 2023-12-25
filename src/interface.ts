@@ -7,6 +7,9 @@ export interface Event {
   picture: string;
   province: string;
   date: string;
+  time: string;
+  package: string[];
+  description: string;
 }
 
 export interface EventName {
