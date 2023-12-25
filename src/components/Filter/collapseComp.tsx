@@ -1,32 +1,27 @@
 
 
-export default function CollapseComp() {
+export default function CollapseComp({filterName} : {filterName:string}) {
     return (
-        <div className="w-full h-12 relative my-10 ">
-            {/* <div className="bg-white w-full h-12 flex flex-row justify-between items-center">
-                <h1>province</h1>
-                <div className="relative w-12 h-12 cursor-pointer">
-                    <input type="checkbox" className="peer w-12 h-12 absolute opacity-0 z-10 cursor-pointer">
-                    </input>
-                    <div className="absolute top-3 right-3 rotate-0 peer-checked:rotate-180 transition-tranform duration-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                        </svg>
-                    </div>
+        <div className="relative w-full overflow-hidden mt-1 rounded-md ">
+            <input type="checkbox" className="opacity-0 peer z-10 absolute h-12 w-12 right-0" />
+            <div className="bg-gray-100 h-12 w-full pl-5 flex items-center">
+                <h1 className="text-gray-500">
+                    {filterName}
+                </h1>
+            </div>
+            <div className="text-gray-500 absolute top-3 right-3 rotate-0 peer-checked:rotate-180">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                </svg>
+            </div>
+            <div className="bg-black text-white overflow-hidden max-h-0 peer-checked:max-h-80 
+            transition-tranfrom duration-500">
+                <div className="p-4">
+                    <p>hfd</p>
+                    <p>hfd</p>
                 </div>
             </div>
-            <div className="w-full h-40">
-                
 
-            </div> */}
-            
-            <input type="checkbox" className="peer w-12 h-12 absolute opacity-1 z-10 cursor-pointer"></input>
-            <div className="w-full max-h-0 peer-checked:max-h-40 bg-black overflow-hidden">
-                <div className="w-full h-40 text-white">
-                    gfdsg
-                </div>
-            </div>
-            
         </div>
     );
 }
