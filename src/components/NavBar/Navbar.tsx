@@ -20,9 +20,14 @@ export default function Navbar() {
           BookWing
         </div>
       </Link>
-      <div className="w-[20%] h-[100%] flex flex-row justify-center items-center space-x-2">
-        <Link href="/mapPage">Map</Link>
-        <NavbarDropdown />
+      <div className="w-[40%] h-[100%] flex flex-row justify-center items-center">
+        <div className="w-[50%] h-[100%] space-x-12 flex flex-row items-center justify-center">
+          <Link href="/addEvent">Add Event</Link>
+          <Link href="/mapPage">Map</Link>
+        </div>
+        <div className="w-[50%] h-[100%] flex items-center justify-center text-center">
+          <NavbarDropdown />
+        </div>
       </div>
       <div className="w-[20%] h-[100%]">
         <NavbarAuth />
