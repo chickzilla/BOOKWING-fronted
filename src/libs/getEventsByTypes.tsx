@@ -12,7 +12,7 @@ export default async function getEventsByTypes(type: string) {
   if (!response.ok) {
     throw new Error("Fail to fetch event by type");
   }
-  console.log("response ALL PROVINCE", response);
+  //console.log("response ALL PROVINCE", response);
 
   return await response.json();
 }

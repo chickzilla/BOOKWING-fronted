@@ -15,7 +15,7 @@ export default function MapPage() {
       try {
         const data = await getAllLocation();
         setEventDetailData(data);
-        console.log("data all location", data);
+        //console.log("data all location", data);
       } catch (error) {}
     };
     fetchAllEvent();
