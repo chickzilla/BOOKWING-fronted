@@ -6,10 +6,12 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimeField } from "@mui/x-date-pickers/TimeField";
-import { ThailandProvince } from "@/data/province";
 import InputLabel from "@mui/material/InputLabel";
 import { Dayjs } from "dayjs";
 import TextField from "@mui/material/TextField";
+import { province, Amphur } from "@/interface";
+import getAllProvince from "@/libs/getAllProvince";
+import getSubProvince from "@/libs/getSubProvince";
 
 export default function DateandLocationForm({
   setParentProvince,
@@ -21,58 +23,107 @@ export default function DateandLocationForm({
   setParentTime: Function;
 }) {
   const [selectProvince, setSelectProvince] = useState("Bangkok");
+  const [selectAmphur, setSelectAmphur] = useState("");
+  const [selectpostcode, setSelectpostcode] = useState("");
   const [selectDate, setSelectDate] = useState<Dayjs | null>(null);
   const [selectTime, setSelectTime] = useState<Dayjs | null>(null);
 
   const [provinces, setProvinces] = useState([]);
+  const [provinceID, setProvinceID] = useState("1");
   const [amphures, setAmphures] = useState([]);
-  const [tambons, setTambons] = useState([]);
-  const [selected, setSelected] = useState({
-    province_id: undefined,
-    amphure_id: undefined,
-    tambon_id: undefined,
-  });
 
   useEffect(() => {
-    (() => {
-      fetch(
-        "https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json"
-      )
-        .then((response) => response.json())
-        .then((result) => {
-          setProvinces(result);
-        });
-    })();
+    const fetchAllProvince = async () => {
+      try {
+        const data = await getAllProvince();
+        setProvinces(data);
+      } catch (error) {}
+    };
+    fetchAllProvince();
   }, []);
 
+  useEffect(() => {
+    const fetchSubProvince = async () => {
+      try {
+        const data = await getSubProvince(provinceID);
+        console.log(data);
+        setAmphures(data);
+      } catch (error) {}
+    };
+    fetchSubProvince();
+  }, [provinceID]);
+
+  useEffect(() => {
+    provinces.map((province: province) => {
+      if (province.id === provinceID) {
+        setSelectProvince(province.name_en);
+      }
+    });
+  }, [provinceID]);
+
+  useEffect(() => {
+    const mergeString = [
+      selectpostcode,
+      selectAmphur,
+      selectProvince,
+      "Thailand",
+    ]
+      .filter(Boolean)
+      .join(", ");
+    setParentProvince(mergeString);
+  }, [selectProvince, selectAmphur, selectpostcode]);
+
   return (
-    <div className="w-[60%] h-[20%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
-      <div className="w-[80%] h-[40%] flex flex-row justify-center items-center">
-        <div className="w-[50%] h-[100%] flex flex-col">
-          <InputLabel>selectProvince</InputLabel>
+    <div className="w-[60%] h-[25%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
+      <div className="w-[80%] h-[80%] flex flex-col justify-center items-center space-y-10">
+        <div className="w-[100%] h-[70%] flex flex-col items-center justify-center space-y-5">
+          <div className="w-[100%]">Province</div>
           <Select
             labelId="province-select-label"
-            sx={{ width: "80%" }}
-            value={selectProvince}
+            value={provinceID}
+            sx={{ width: "100%" }}
             onChange={(e) => {
-              setSelectProvince(e.target.value as string);
-              setParentProvince(e.target.value as string);
+              setProvinceID(e.target.value as string);
+              setSelectAmphur("");
             }}
           >
-            {ThailandProvince.map((type, index) => (
-              <MenuItem value={type} key={index}>
-                {type}
+            {provinces.map((province: province) => (
+              <MenuItem value={province.id} key={province.id}>
+                {province.name_en}
               </MenuItem>
             ))}
           </Select>
+          <div className="w-[100%] h-[50%] flex flex-row space-x-10">
+            <Select
+              labelId="Alphures-select-label"
+              value={selectAmphur}
+              sx={{ width: "50%" }}
+              onChange={(e) => {
+                setSelectAmphur(e.target.value as string);
+              }}
+            >
+              {amphures.map((amphur: Amphur) => (
+                <MenuItem value={amphur.name_en} key={amphur.name_en}>
+                  {amphur.name_en}
+                </MenuItem>
+              ))}
+            </Select>
+            <TextField
+              label="Postcode"
+              variant="outlined"
+              sx={{ width: "50%" }}
+              onChange={(e) => {
+                setSelectpostcode(e.target.value);
+              }}
+            />
+          </div>
         </div>
-        <div className="w-[50%] h-[100%] flex flex-col flex flex-row pl-5">
-          <InputLabel>Date and Time</InputLabel>
+        <div className="w-[100%] h-[30%] flex flex-col items-center justify-center space-y-5">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <div className="w-[100%] flex flex-row space-x-2 justify-center">
+            <div className="w-[100%] flex flex-row space-x-2 justify-center items-center">
               <DatePicker
                 label="Event Date"
-                sx={{ width: "50%", height: "100%" }}
+                sx={{ width: "50%" }}
                 value={selectDate}
                 onChange={(newValue) => {
                   setSelectDate(newValue);
@@ -82,7 +133,7 @@ export default function DateandLocationForm({
               <TimeField
                 label="Start time"
                 format="HH:mm"
-                sx={{ width: "50%", height: "80%" }}
+                sx={{ width: "50%" }}
                 value={selectTime}
                 onChange={(newValue) => {
                   setSelectTime(newValue);
@@ -91,15 +142,6 @@ export default function DateandLocationForm({
               />
             </div>
           </LocalizationProvider>
-        </div>
-      </div>
-      <div>
-        <div className="w-[80%] h-[60%] flex flex-row justify-center items-center">
-          <TextField
-            id="outlined-basic"
-            label="Post code"
-            variant="outlined"
-          ></TextField>
         </div>
       </div>
     </div>

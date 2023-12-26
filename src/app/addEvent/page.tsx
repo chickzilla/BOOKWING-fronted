@@ -11,8 +11,6 @@ import { useRouter } from "next/navigation";
 import uploadFile from "@/libs/uploadFile";
 import createEvent from "@/libs/createEvent";
 import getCoordinates from "@/libs/getCoordinates";
-import getAllProvince from "@/libs/getAllProvince";
-import getSubProvince from "@/libs/getSubProvince";
 
 export default function CreateEventPage() {
   const [selectName, setSelectName] = useState<string>("");
@@ -33,20 +31,20 @@ export default function CreateEventPage() {
   const SubmitHandler = async () => {
     setSubmit(true);
     if (
-      /*!selectName ||
+      !selectName ||
       !selectType ||
-      !allDescription ||*/
-      !selectProvince /*||
+      !allDescription ||
+      !selectProvince ||
       !selectDate ||
       !selectTime ||
       !selectPackage ||
       !selectPictureFile ||
       !selectlatitude ||
-      !selectlongitude*/
+      !selectlongitude
     ) {
       alert("Please fill all information");
     } else {
-      /*const data: Event = {
+      const data: Event = {
         id: "0",
         name: selectName,
         type: selectType,
@@ -60,17 +58,20 @@ export default function CreateEventPage() {
         longitude: selectlongitude,
       };
       try {
-        /*const file = await uploadFile(selectPictureFile);
+        const file = await uploadFile(selectPictureFile);
         data.picture = file.url;
+        const geocoding = await getCoordinates(selectProvince);
+        const latidude = geocoding.features[0].center[1];
+        const longitude = geocoding.features[0].center[0];
+        data.latitude = latidude;
+        data.longitude = longitude;
+        console.log(data);
         const response = await createEvent(data);
-        
+
         router.push("/");
       } catch (error) {
         console.log(error);
-      }*/
-      const geocoding = await getCoordinates(
-        "21000, Mueang Rayong, Rayong, Thailand"
-      );
+      }
     }
   };
 

@@ -38,3 +38,7 @@ export interface province {
   id: string;
   name_en: string;
 }
+
+export interface Amphur {
+  name_en: string;
+}
