@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Select, MenuItem } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -9,6 +9,7 @@ import { TimeField } from "@mui/x-date-pickers/TimeField";
 import { ThailandProvince } from "@/data/province";
 import InputLabel from "@mui/material/InputLabel";
 import { Dayjs } from "dayjs";
+import TextField from "@mui/material/TextField";
 
 export default function DateandLocationForm({
   setParentProvince,
@@ -21,8 +22,28 @@ export default function DateandLocationForm({
 }) {
   const [selectProvince, setSelectProvince] = useState("Bangkok");
   const [selectDate, setSelectDate] = useState<Dayjs | null>(null);
-
   const [selectTime, setSelectTime] = useState<Dayjs | null>(null);
+
+  const [provinces, setProvinces] = useState([]);
+  const [amphures, setAmphures] = useState([]);
+  const [tambons, setTambons] = useState([]);
+  const [selected, setSelected] = useState({
+    province_id: undefined,
+    amphure_id: undefined,
+    tambon_id: undefined,
+  });
+
+  useEffect(() => {
+    (() => {
+      fetch(
+        "https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json"
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          setProvinces(result);
+        });
+    })();
+  }, []);
 
   return (
     <div className="w-[60%] h-[20%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
@@ -36,7 +57,6 @@ export default function DateandLocationForm({
             onChange={(e) => {
               setSelectProvince(e.target.value as string);
               setParentProvince(e.target.value as string);
-              //console.log(e.target.value);
             }}
           >
             {ThailandProvince.map((type, index) => (
@@ -71,6 +91,15 @@ export default function DateandLocationForm({
               />
             </div>
           </LocalizationProvider>
+        </div>
+      </div>
+      <div>
+        <div className="w-[80%] h-[60%] flex flex-row justify-center items-center">
+          <TextField
+            id="outlined-basic"
+            label="Post code"
+            variant="outlined"
+          ></TextField>
         </div>
       </div>
     </div>

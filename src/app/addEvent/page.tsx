@@ -4,12 +4,15 @@ import CreateEventForm from "@/components/CreateEvent/CreateEventForm";
 import DetailForm from "@/components/CreateEvent/DetailForm";
 import DateandLocationForm from "@/components/CreateEvent/DateandLocationForm";
 import PackageForm from "@/components/CreateEvent/PackageForm";
-import { useEffect, useState } from "react";
+import { use, useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { Event } from "@/interface";
 import { useRouter } from "next/navigation";
 import uploadFile from "@/libs/uploadFile";
 import createEvent from "@/libs/createEvent";
+import getCoordinates from "@/libs/getCoordinates";
+import getAllProvince from "@/libs/getAllProvince";
+import getSubProvince from "@/libs/getSubProvince";
 
 export default function CreateEventPage() {
   const [selectName, setSelectName] = useState<string>("");
@@ -24,28 +27,26 @@ export default function CreateEventPage() {
   const [selectlongitude, setSelectlongitude] = useState<number>(11.0);
 
   const [selectPictureFile, setSelectPictureFile] = useState<File | null>(null);
-
   const router = useRouter();
-
   const [submit, setSubmit] = useState<boolean>(false);
 
   const SubmitHandler = async () => {
     setSubmit(true);
     if (
-      !selectName ||
+      /*!selectName ||
       !selectType ||
-      !allDescription ||
-      !selectProvince ||
+      !allDescription ||*/
+      !selectProvince /*||
       !selectDate ||
       !selectTime ||
       !selectPackage ||
       !selectPictureFile ||
       !selectlatitude ||
-      !selectlongitude
+      !selectlongitude*/
     ) {
       alert("Please fill all information");
     } else {
-      const data: Event = {
+      /*const data: Event = {
         id: "0",
         name: selectName,
         type: selectType,
@@ -59,16 +60,17 @@ export default function CreateEventPage() {
         longitude: selectlongitude,
       };
       try {
-        const file = await uploadFile(selectPictureFile);
-        //console.log(file.url);
+        /*const file = await uploadFile(selectPictureFile);
         data.picture = file.url;
         const response = await createEvent(data);
-        //console.log(response);
+        
         router.push("/");
-        //console.log(selectPictureFile);
       } catch (error) {
         console.log(error);
-      }
+      }*/
+      const geocoding = await getCoordinates(
+        "21000, Mueang Rayong, Rayong, Thailand"
+      );
     }
   };
 

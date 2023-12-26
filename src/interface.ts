@@ -29,6 +29,12 @@ export interface TypeEvent {
   link: string;
 }
 
-export interface EventList {
-  Event: Event[];
+export interface Coordinates {
+  latitude: number;
+  longitude: number;
+}
+
+export interface province {
+  id: string;
+  name_en: string;
 }
