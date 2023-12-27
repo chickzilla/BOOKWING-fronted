@@ -30,9 +30,9 @@ export default function RegisterPanel() {
     return (
         <div className="w-[25vw] h-[80vh] bg-white flex flex-col items-center text-black rounded-md shadow-md ">
             <h1 className="text-black text-5xl font-bold mt-16">Register</h1>
-            <div className="mt-10">
-                <label htmlFor="Firstname" className="block text-sm font-light px-2 py-1">Fistname</label>
-                <input className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
+            <div className="mt-8 w-[60%] h-[7%]">
+                <label htmlFor="Firstname" className="block text-sm font-light px-2 py-1 ">Fistname</label>
+                <input className="w-full h-full inline px-2 bg-gray-100 rounded-sm
                     focus:border-b-2 focus:border-rose-500 focus:bg-white 
                     transition duration-300 ease-out focus:outline-none"
                     id="Firstname"
@@ -44,9 +44,9 @@ export default function RegisterPanel() {
                 >
                 </input>
             </div>
-            <div className="mt-2">
-                <label htmlFor="Lastname" className="block text-sm font-light px-2 py-1">Lastname</label>
-                <input className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
+            <div className="mt-8 w-[60%] h-[7%]">
+                <label htmlFor="Lastname" className="block text-sm font-light px-2 py-1 ">Lastname</label>
+                <input className="w-full h-full inline px-2 bg-gray-100 rounded-sm
                     focus:border-b-2 focus:border-rose-500 focus:bg-white 
                     transition duration-300 ease-out focus:outline-none"
                     id="Lastname"
@@ -58,9 +58,9 @@ export default function RegisterPanel() {
                 >
                 </input>
             </div>
-            <div className="mt-2">
-                <label htmlFor="Email" className="block text-sm font-light px-2 py-1">Email</label>
-                <input className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
+            <div className="mt-8 w-[60%] h-[7%]">
+                <label htmlFor="Email" className="block text-sm font-light px-2 py-1 ">Email</label>
+                <input className="w-full h-full inline px-2 bg-gray-100 rounded-sm
                     focus:border-b-2 focus:border-rose-500 focus:bg-white 
                     transition duration-300 ease-out focus:outline-none"
                     id="Email"
@@ -72,9 +72,9 @@ export default function RegisterPanel() {
                 >
                 </input>
             </div>
-            <div className="mt-2">
-                <label htmlFor="Username" className="block text-sm font-light px-2 py-1">Username</label>
-                <input className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
+            <div className="mt-8 w-[60%] h-[7%]">
+                <label htmlFor="Username" className="block text-sm font-light px-2 py-1 ">Username</label>
+                <input className="w-full h-full inline px-2 bg-gray-100 rounded-sm
                     focus:border-b-2 focus:border-rose-500 focus:bg-white 
                     transition duration-300 ease-out focus:outline-none"
                     id="username"
@@ -87,9 +87,9 @@ export default function RegisterPanel() {
 
                 </input>
             </div>
-            <div className="mt-2">
-                <label htmlFor="Password" className="block text-sm font-light px-2 py-1">Password</label>
-                <input className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
+            <div className="mt-8 w-[60%] h-[7%] ">
+                <label htmlFor="Password" className="block text-sm font-light px-2 py-1 ">Password</label>
+                <input className="w-full h-full inline px-2 bg-gray-100 rounded-sm
                     focus:border-b-2 focus:border-rose-500 focus:bg-white 
                     transition duration-300 ease-out focus:outline-none"
                     type="password"
@@ -102,9 +102,9 @@ export default function RegisterPanel() {
                 >
                 </input>
             </div>
-            <div className="mt-2">
-                <label htmlFor="Password2" className="block text-sm font-light px-2 py-1">Confirm Password</label>
-                <input className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
+            <div className="mt-8 w-[60%] h-[7%]">
+                <label htmlFor="Password2" className="block text-sm font-light px-2 py-1 ">Confirm Password</label>
+                <input className="w-full h-full inline px-2 bg-gray-100 rounded-sm
                     focus:border-b-2 focus:border-rose-500 focus:bg-white 
                     transition duration-300 ease-out focus:outline-none"
                     type="password"
@@ -119,7 +119,7 @@ export default function RegisterPanel() {
 
             </div>
 
-            <button className="mt-8 py-3 px-8 text-white border-2 outline-none border-white bg-rose-400 rounded-md hover:border-2 hover:bg-white hover:border-rose-400 hover:text-rose-400 transition-colors">
+            <button className="mt-10 py-3 px-8 text-white border-2 outline-none border-white bg-rose-400 rounded-md hover:border-2 hover:bg-white hover:border-rose-400 hover:text-rose-400 transition-colors">
                 Register
             </button>
 
