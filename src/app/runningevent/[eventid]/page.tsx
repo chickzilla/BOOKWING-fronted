@@ -5,7 +5,7 @@ import OrganizeDetail from "@/components/detailPage/organizeDetail";
 import RunningDetail from "@/components/detailPage/runningDetail";
 import PackagePanel from "@/components/detailPage/packagePanel";
 import IncludeInEntry from "@/components/detailPage/include";
-
+import MapDetail from "@/components/detailPage/mapDetail";
 export default function EventDatailPage({
   params,
 }: {
@@ -20,9 +20,9 @@ export default function EventDatailPage({
       <div className="flex flex-col w-[100vw] h-[400vh] items-center space-y-14 pt-10 ">
         <RunningDetail eventName="Event Name" date="20/20/20" />
         <OrganizeDetail />
-
         <PackagePanel />
         <IncludeInEntry />
+        <MapDetail/>
       </div>
     </main>
   );
