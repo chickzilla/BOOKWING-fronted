@@ -12,17 +12,20 @@ export default function EventDatailPage({
   params: { eventid: string };
 }) {
   return (
-    // <main className="h-[300vh] w-[100vw] bg-white mt-[70px]">
-    //   <div className="flex flex-col w-[100vw] h-[200vh] items-center space-y-16 pt-10 ">
-    //     <RunningDetail eventName="Event Name" date="20/20/20" />
 
     <main className="h-[400vh] w-[100vw] bg-white mt-[70px]">
-      <div className="flex flex-col w-[100vw] h-[400vh] items-center space-y-14 pt-10 ">
-        <RunningDetail eventName="Event Name" date="20/20/20" />
-        <OrganizeDetail />
+      <div className="flex flex-col w-[100vw] h-[400vh] items-center space-y-14 ">
+        <RunningDetail eventName="Adrenaline SUB 1 Chiang Rai" date="17 Dec, 2023 (Sun)" distance={["3km", "5km"]} />
+        <OrganizeDetail eventDetail= "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptatum rem! Nesciunt ab voluptatibus quod quia. Culpa ex natus dolorem, aut sed debitis ea quas, quasi necessitatibus aperiam voluptate et.Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptatum rem! Nesciunt ab voluptatibus quod quia. Culpa ex natus dolorem, aut sed debitis ea quas, quasi necessitatibus aperiam voluptate et.Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptatum rem! Nesciunt ab voluptatibus quod quia. Culpa ex natus dolorem, aut sed debitis ea quas, quasi necessitatibus aperiam voluptate et."/>
         <PackagePanel />
-        <IncludeInEntry />
-        <MapDetail/>
+        <IncludeInEntry allInclude={["Finisher medal",
+          "Event T-shirts",
+          "Drink Stations",
+          "Timing chip (single use)",
+          "Toilets",
+          "Goodie bag",
+          "Medical Assistance"]} />
+        <MapDetail />
       </div>
     </main>
   );
