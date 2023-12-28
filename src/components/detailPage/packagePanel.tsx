@@ -1,11 +1,18 @@
+
 import PackageCard from "./packageCard";
-export default function PackagePanel(){
+export default function PackagePanel({
+    allDistance,date,time,province
+}: {
+    allDistance: string[],
+    date : string,time: string,province: string
+}){
     return(
-        <div className="w-[50vw] h-[70vh] flex flex-row flex-wrap">
-            <PackageCard distance="3" location="Tderm" date="22/22/22" time="18:00"/>
-            <PackageCard distance="5" location="Tderm" date="22/22/22" time="18:00"/>
-            <PackageCard distance="10" location="Tderm" date="22/22/22" time="18:00"/>
-            <PackageCard distance="12" location="Tderm" date="22/22/22" time="18:00"/>
+        <div className="w-[50vw] h-auto flex flex-row flex-wrap space-y-8">
+            {
+                allDistance.map((d) =>(
+                    <PackageCard distance={d} location={province} date={date} time={time}/>
+                ))
+            }
         </div>
     );
 

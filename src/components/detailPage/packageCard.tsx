@@ -4,10 +4,10 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 export default function PackageCard({ distance, location, date, time }: { distance: string, location: string, date: string, time: string }) {
     return (
-        <div className="w-1/2 h-1/2 bg-white rounded-lg  text-black ">
+        <div className="w-1/2 h-30 bg-white rounded-lg  text-black ">
             <div className='flex flex-row justify-between'>
                 <h1 className="text-2xl p-2 pb-14 font-bold ">
-                    {distance}KM
+                    {distance}
 
                 </h1>
                 <h1 className=' text-end pr-5'>

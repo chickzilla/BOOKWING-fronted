@@ -46,7 +46,7 @@ export default function EventDatailPage({
       <div className="flex flex-col w-[100vw] h-[400vh] items-center space-y-14 ">
         <RunningDetail eventName={event?.name} date={event.date} distance={event.type} />
         <OrganizeDetail eventDetail= {event.description}/>
-        <PackagePanel />
+        <PackagePanel allDistance={event.type} date= {event.date}time={event.time} province={event.province}/>
         <IncludeInEntry allInclude={event.package} />
         {/* <MapDetail /> */}
       </div>

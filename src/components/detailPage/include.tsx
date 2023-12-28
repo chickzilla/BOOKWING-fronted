@@ -20,7 +20,7 @@ export default function IncludeInEntry({
               <CheckIcon sx={{ color: green[300] }} /> {Include}
             </p>
           </div>
-        ))}
+          ))}
       </div>
     </div>
   );
