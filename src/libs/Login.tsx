@@ -13,7 +13,7 @@ export default async function Login({Email,password} : {Email : string,password 
     });
 
     if(!response.ok){
-        throw Error ("รักพ่อ ร.10")
+        throw new Error ("รักพ่อ ร.10")
         
     }
     return await response.json();

@@ -1,0 +1,20 @@
+.customshapedividertop1703780742 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.customshapedividertop1703780742 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 245px;
+    transform: rotateY(180deg);
+}
+
+.customshapedividertop1703780742 .shapeFill {
+    fill: #b31616;
+}
