@@ -6,9 +6,9 @@ export default function OrganizeDetail({
   eventDetail: string;
 }) {
   return (
-    <div className="w-[80%] h-[40vh] text-black rounded-lg px-5">
-      <h1 className="text-3xl pt-10 font-bold">About the Event 🏃‍♂️🌟</h1>
-      <p className="text-lg py-5 indent-16 text-justify text-gray-800">
+    <div className="w-[70%] md:h-[auto] text-black space-y-5">
+      <h1 className="text-2xl font-bold">About the Event 🏃‍♂️🌟</h1>
+      <p className="text-base indent-16 text-justify text-gray-800">
         {eventDetail}
       </p>
     </div>

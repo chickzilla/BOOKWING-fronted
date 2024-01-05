@@ -50,12 +50,13 @@ export default function EventDatailPage({
     fetchData();
   }, []);
   return (
-    <main className="w-full h-[400vh] bg-neutral-100 pt-[70px]">
-      <div className="flex flex-col w-[100%] h-[100%] items-center space-y-10 ">
+    <main className="w-full bg-neutral-100 h-auto py-16 mt-[70px]">
+      <div className="flex flex-col w-[100%] h-[100%] items-center space-y-20 ">
         <RunningDetail
           eventName={event?.name}
           date={event.date}
           distance={event.type}
+          picture={event.picture}
         />
         <OrganizeDetail eventDetail={event.description} />
         <PackagePanel

@@ -7,10 +7,12 @@ export default function RunningDetail({
   eventName,
   date,
   distance,
+  picture,
 }: {
   eventName: string;
   date: string;
   distance: string[];
+  picture: string;
 }) {
   const [allDistance, setAllDistance] = useState("");
   useEffect(() => {
@@ -18,32 +20,33 @@ export default function RunningDetail({
   }, [distance]);
 
   return (
-    <div className="flex flex-row w-[80%] h-[50vh] justify-between pt-5">
-      <div className="w-[40%] h-[100%] pt-10">
+    <div className="flex flex-row w-[90%] h-[50vh] justify-between">
+      <div className="w-[40%] h-[100%]">
         <Image
-          className="object-cover w-full h-full "
-          src="/img/head_picture.jpg"
+          className="object-cover w-[100%] h-[100%] "
+          src={`${picture}`}
           alt="cover"
           width={100}
           height={100}
           sizes="1000px"
         />
       </div>
-      <div className="w-[50%] h-[80%] text-black pt-10">
+      <div className="w-[50%] h-max text-black">
         <h1 className="text-3xl font-bold">{eventName}</h1>
         <div className="mt-14 text-gray-800">
           <LocationOnIcon />{" "}
-          <p className="pl-6 inline text-base font-normal">
+          <div className="pl-6 inline text-base font-normal">
             Chiang Rai, Thailand
-          </p>
+          </div>
         </div>
         <div className="mt-2 text-gray-800">
-          <CalendarMonthIcon /> <p className="pl-6 inline text-base">{date}</p>
+          <CalendarMonthIcon />{" "}
+          <div className="pl-6 inline text-base">{date}</div>
         </div>
         <div className="w-full border-t-zinc-400 border-2 mt-10 mb-5 " />
         <div className="flex flex-row w-full">
-          <p className="font-bold mr-10">Running:</p>
-          <p className="ml-10 text-gray-800">{allDistance}</p>
+          <div className="font-bold mr-10">Running:</div>
+          <div className="ml-10 text-gray-800">{allDistance}</div>
         </div>
         <div className="w-full border-t-zinc-400 border-2 mt-5" />
       </div>
