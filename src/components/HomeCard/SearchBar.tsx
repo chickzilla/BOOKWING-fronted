@@ -15,9 +15,8 @@ export default function SearchBar() {
       try {
         const data = await getAllEventName();
         setNameData(data);
-        //console.log("name all", data);
       } catch (error) {
-        //console.error("Error fetching event data:", error);
+        setNameData([]);
       }
     };
     fetchAllEvent();

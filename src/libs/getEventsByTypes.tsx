@@ -3,8 +3,6 @@
 const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default async function getEventsByTypes(type: string) {
-  //console.log("backend url", BackendUrl);
-
   const response = await fetch(`${BackendUrl}/event/type?type=${type}`, {
     cache: "no-store",
     next: { tags: ["events"] },

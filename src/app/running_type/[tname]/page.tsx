@@ -3,6 +3,7 @@ import NavBarType from "@/components/NavBarType/NavBarType";
 import ShowCard from "@/components/TypePage/ShowCard";
 import getEventsByTypes from "@/libs/getEventsByTypes";
 import { TypeEvent } from "@/interface";
+import { Event } from "@/interface";
 import EventType_Data from "@/data/eventType";
 
 export default async function TypePage({
@@ -10,10 +11,16 @@ export default async function TypePage({
 }: {
   params: { tname: string };
 }) {
-  const EventByType = await getEventsByTypes(params.tname);
-  const count = EventByType.length;
-  //console.log("count", count);
-  //console.log("Events", EventByType);
+  let EventByType: Event[] = [];
+  let count = 0;
+
+  try {
+    EventByType = await getEventsByTypes(params.tname);
+    count = EventByType.length;
+  } catch (error) {
+    EventByType = [];
+    count = 0;
+  }
 
   const EventType = EventType_Data.find(
     (e: TypeEvent) => e.link === params.tname
