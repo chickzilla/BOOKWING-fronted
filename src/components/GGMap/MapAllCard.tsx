@@ -44,7 +44,7 @@ export default function MapAllCard({ EventId }: { EventId: string | null }) {
         <Link href={`/runningevent/${EventId}`} className="w-[100%] h-[100%]">
           <div className="w-[100%] h-[50%]">
             <Image
-              src="/img/run_themoon.png"
+              src={`${eventDetail?.picture || "/img/run_themoon.png"}`}
               width={100}
               height={100}
               sizes="500"
