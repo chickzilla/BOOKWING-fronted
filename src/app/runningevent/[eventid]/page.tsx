@@ -23,6 +23,7 @@ export default function EventDatailPage({
     type: [],
     picture: "",
     province: "",
+    location: "",
     date: "",
     time: "",
     package: [],
@@ -57,16 +58,17 @@ export default function EventDatailPage({
           date={event.date}
           distance={event.type}
           picture={event.picture}
+          location={event.location}
         />
         <OrganizeDetail eventDetail={event.description} />
+        <IncludeInEntry allInclude={event.package} />
         <PackagePanel
           allDistance={event.type}
           date={event.date}
           time={event.time}
-          province={event.province}
+          province={event.location}
         />
-        <IncludeInEntry allInclude={event.package} />
-        {/* <MapDetail /> */}
+        <MapDetail />
       </div>
     </main>
   );

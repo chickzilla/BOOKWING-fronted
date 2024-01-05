@@ -8,11 +8,13 @@ export default function RunningDetail({
   date,
   distance,
   picture,
+  location,
 }: {
   eventName: string;
   date: string;
   distance: string[];
   picture: string;
+  location: string;
 }) {
   const [allDistance, setAllDistance] = useState("");
   useEffect(() => {
@@ -35,9 +37,7 @@ export default function RunningDetail({
         <h1 className="text-3xl font-bold">{eventName}</h1>
         <div className="mt-14 text-gray-800">
           <LocationOnIcon />{" "}
-          <div className="pl-6 inline text-base font-normal">
-            Chiang Rai, Thailand
-          </div>
+          <div className="pl-6 inline text-base font-normal">{location}</div>
         </div>
         <div className="mt-2 text-gray-800">
           <CalendarMonthIcon />{" "}

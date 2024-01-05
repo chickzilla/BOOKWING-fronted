@@ -20,9 +20,9 @@ export default async function TypePage({
   );
 
   return (
-    <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center mt-[70px] text-black py-16">
+    <main className="bg-neutral-100 w-full h-[200vh] flex flex-col items-center mt-[70px] text-black py-16">
       <NavBarType />
-      <div className="w-[100%] h-[80%] flex flex-col items-center">
+      <div className="w-[100%] h-[80%] flex flex-col items-center space-y-16">
         <div className="space-y-4 w-[80%] h-[10%] flex flex-row justify-around pt-[50px]">
           <div className="text-black w-full font-bold text-5xl">
             {EventType?.title}

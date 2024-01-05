@@ -6,6 +6,7 @@ export interface Event {
   type: string[];
   picture: string;
   province: string;
+  location: string;
   date: string;
   time: string;
   package: string[];

@@ -15,10 +15,12 @@ import getSubProvince from "@/libs/getSubProvince";
 
 export default function DateandLocationForm({
   setParentProvince,
+  setParentLocation,
   setParentDate,
   setParentTime,
 }: {
   setParentProvince: Function;
+  setParentLocation: Function;
   setParentDate: Function;
   setParentTime: Function;
 }) {
@@ -70,7 +72,8 @@ export default function DateandLocationForm({
     ]
       .filter(Boolean)
       .join(", ");
-    setParentProvince(mergeString);
+    setParentLocation(mergeString);
+    setParentProvince(selectProvince);
   }, [selectProvince, selectAmphur, selectpostcode]);
 
   return (
@@ -84,6 +87,7 @@ export default function DateandLocationForm({
             sx={{ width: "100%" }}
             onChange={(e) => {
               setProvinceID(e.target.value as string);
+
               setSelectAmphur("");
             }}
           >

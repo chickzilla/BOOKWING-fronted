@@ -17,6 +17,7 @@ export default function CreateEventPage() {
   const [selectType, setSelectType] = useState<string[]>([]);
   const [allDescription, setAllDescription] = useState<string>("DESCRIPTION");
   const [selectProvince, setSelectProvince] = useState<string>("Bangkok");
+  const [selectLocation, setSelectLocation] = useState<string>("");
   const [selectDate, setSelectDate] = useState<string>("");
   const [selectTime, setSelectTime] = useState<string>("");
   const [selectPackage, setSelectPackage] = useState<string[]>([]);
@@ -29,12 +30,12 @@ export default function CreateEventPage() {
   const [submit, setSubmit] = useState<boolean>(false);
 
   const SubmitHandler = async () => {
-    setSubmit(true);
     if (
       !selectName ||
       !selectType ||
       !allDescription ||
       !selectProvince ||
+      !selectLocation ||
       !selectDate ||
       !selectTime ||
       !selectPackage ||
@@ -50,6 +51,7 @@ export default function CreateEventPage() {
         type: selectType,
         description: allDescription,
         province: selectProvince,
+        location: selectLocation,
         date: selectDate,
         time: selectTime,
         package: selectPackage,
@@ -58,6 +60,9 @@ export default function CreateEventPage() {
         longitude: selectlongitude,
       };
       try {
+        setSubmit(true);
+        //console.log("location", selectLocation);
+        //console.log("province", selectProvince);
         const file = await uploadFile(selectPictureFile);
         data.picture = file.url;
         const geocoding = await getCoordinates(selectProvince);
@@ -65,12 +70,12 @@ export default function CreateEventPage() {
         const longitude = geocoding.features[0].center[0];
         data.latitude = latidude;
         data.longitude = longitude;
-        console.log(data);
         const response = await createEvent(data);
 
-        router.push("/");
+        router.push(`/runningevent/${response.message}`);
       } catch (error) {
         console.log(error);
+        setSubmit(false);
       }
     }
   };
@@ -104,6 +109,9 @@ export default function CreateEventPage() {
           setParentProvince={(value: string) => {
             setSelectProvince(value);
           }}
+          setParentLocation={(value: string) => {
+            setSelectLocation(value);
+          }}
           setParentTime={(value: string) => {
             setSelectTime(value);
           }}
@@ -114,14 +122,25 @@ export default function CreateEventPage() {
           }}
         />
         <div className="w-[60%] h-[5%] flex flex-col items-center ">
-          <Button
-            variant="contained"
-            sx={{ width: "100%", height: "100%" }}
-            onClick={SubmitHandler}
-            className="hover:bg-[#CD5C5C] bg-[#B22222] text-xl text-white"
-          >
-            Add new
-          </Button>
+          {!submit ? (
+            <Button
+              variant="contained"
+              sx={{ width: "100%", height: "100%" }}
+              onClick={SubmitHandler}
+              className="hover:bg-[#CD5C5C] bg-[#B22222] text-xl text-white"
+            >
+              Add new
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              sx={{ width: "100%", height: "100%" }}
+              className="hover:bg-[#CD5C5C] bg-[#B22222] text-xl text-white"
+              disabled
+            >
+              ...Creating
+            </Button>
+          )}
         </div>
       </div>
     </main>

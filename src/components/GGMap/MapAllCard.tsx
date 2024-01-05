@@ -42,23 +42,25 @@ export default function MapAllCard({ EventId }: { EventId: string | null }) {
     <div className="w-[30%] h-[100vh] flex fixed items-center justify-center start-0 top-0 z-10 pt-[70px]">
       <div className="w-[80%] h-[75%] bg-white rounded-lg flex flex-col opacity-80 hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105">
         <Link href={`/runningevent/${EventId}`} className="w-[100%] h-[100%]">
-          <div className="w-[100%] h-[50%]">
-            <Image
-              src={`${eventDetail?.picture || "/img/run_themoon.png"}`}
-              width={100}
-              height={100}
-              sizes="500"
-              alt="picture from map"
-              className="object-cover w-full h-full layout-fill rounded-t-lg"
-            />
-          </div>
+          {eventDetail?.picture && (
+            <div className="w-[100%] h-[50%]">
+              <Image
+                src={eventDetail.picture}
+                width={100}
+                height={100}
+                sizes="500"
+                alt="picture from map"
+                className="object-cover w-full h-full layout-fill rounded-t-lg"
+              />
+            </div>
+          )}
           <div className="w-[100%] h-[50%] flex flex-col text-black pt-4 px-5">
             <div className="w-[100%] h-[20%] font-bold text-2xl">
               {eventDetail?.name}
             </div>
             <div className="w-[100%] h-[20%] flex flex-row items-center text-base">
               <LocationOnIcon sx={{ marginRight: "5px" }} />{" "}
-              {eventDetail?.province}
+              {eventDetail?.location}
             </div>
             <div className="w-[100%] h-[20%] flex flex-row items-center text-base">
               <CalendarMonthIcon sx={{ marginRight: "5px" }} />{" "}
