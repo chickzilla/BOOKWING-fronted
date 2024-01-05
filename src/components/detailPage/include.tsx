@@ -8,7 +8,7 @@ export default function IncludeInEntry({
   allInclude: string[];
 }) {
   return (
-    <div className="w-[50vw] h-[30vh] flex flex-col text-black">
+    <div className="w-[50%] h-[30vh] flex flex-col text-black">
       <div>
         <h1 className="text-5xl font-bold">What’s included in entry</h1>
         <p className="text-3xl font-light">These are included in your entry</p>
@@ -20,7 +20,7 @@ export default function IncludeInEntry({
               <CheckIcon sx={{ color: green[300] }} /> {Include}
             </p>
           </div>
-          ))}
+        ))}
       </div>
     </div>
   );

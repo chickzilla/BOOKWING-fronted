@@ -14,7 +14,7 @@ export default function EventDatailPage({
 }: {
   params: { eventid: string };
 }) {
-  const [event,setEvent] = useState<Event >({
+  const [event, setEvent] = useState<Event>({
     id: "",
     name: "",
     longitude: 0,
@@ -25,28 +25,34 @@ export default function EventDatailPage({
     date: "",
     time: "",
     package: [],
-    description: ""
+    description: "",
   });
   useEffect(() => {
-    const fetchData = async ()=>{
-      try{
-        const data= await getEventByID(params.eventid);
+    const fetchData = async () => {
+      try {
+        const data = await getEventByID(params.eventid);
         setEvent(data);
-        
-      }catch (error){
-        console.log("ERROR")
+      } catch (error) {
+        console.log("ERROR");
       }
     };
     fetchData();
-    
   }, []);
   return (
-
-    <main className="h-[400vh] w-[100vw] bg-white mt-[70px]">
-      <div className="flex flex-col w-[100vw] h-[400vh] items-center space-y-14 ">
-        <RunningDetail eventName={event?.name} date={event.date} distance={event.type} />
-        <OrganizeDetail eventDetail= {event.description}/>
-        <PackagePanel allDistance={event.type} date= {event.date}time={event.time} province={event.province}/>
+    <main className="w-full h-[400vh] bg-white mt-[70px]">
+      <div className="flex flex-col w-[100%] h-[100%] items-center space-y-14 ">
+        <RunningDetail
+          eventName={event?.name}
+          date={event.date}
+          distance={event.type}
+        />
+        <OrganizeDetail eventDetail={event.description} />
+        <PackagePanel
+          allDistance={event.type}
+          date={event.date}
+          time={event.time}
+          province={event.province}
+        />
         <IncludeInEntry allInclude={event.package} />
         {/* <MapDetail /> */}
       </div>

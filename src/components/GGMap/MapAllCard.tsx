@@ -53,18 +53,18 @@ export default function MapAllCard({ EventId }: { EventId: string | null }) {
             />
           </div>
           <div className="w-[100%] h-[50%] flex flex-col text-black pt-4 px-5">
-            <div className="w-[100%] h-[20%] font-bold text-3xl">
+            <div className="w-[100%] h-[20%] font-bold text-2xl">
               {eventDetail?.name}
             </div>
-            <div className="w-[100%] h-[20%] flex flex-row items-center text-xl">
+            <div className="w-[100%] h-[20%] flex flex-row items-center text-base">
               <LocationOnIcon sx={{ marginRight: "5px" }} />{" "}
               {eventDetail?.province}
             </div>
-            <div className="w-[100%] h-[20%] flex flex-row items-center text-xl">
+            <div className="w-[100%] h-[20%] flex flex-row items-center text-base">
               <CalendarMonthIcon sx={{ marginRight: "5px" }} />{" "}
               {eventDetail?.date}
             </div>
-            <div className="w-[100%] h-[20%] flex flex-row items-center text-md">
+            <div className="w-[100%] h-[20%] flex flex-row text-sm">
               <DirectionsRunIcon sx={{ marginRight: "5px" }} />{" "}
               {eventTypes.join(", ")}
             </div>
