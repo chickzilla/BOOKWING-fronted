@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function MapHome() {
   return (
-    <div className="w-[80%] h-[25vh] space-x-12 items-start mt-24 mb-10 flex flex-row">
+    <div className="w-[80%] h-[25vh] space-x-12 items-start mt-24 mb-10 flex flex-row ">
       <div className="space-y-12 w-[50%]">
         <div className="text-black w-full font-bold text-4xl text-start">
           Search by Map

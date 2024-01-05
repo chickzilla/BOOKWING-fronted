@@ -7,8 +7,9 @@ import PackagePanel from "@/components/detailPage/packagePanel";
 import IncludeInEntry from "@/components/detailPage/include";
 import MapDetail from "@/components/detailPage/mapDetail";
 import getEventByID from "@/libs/getEventByID";
-import { error } from "console";
 import { Event } from "@/interface";
+import EventType_Data from "@/data/eventType";
+
 export default function EventDatailPage({
   params,
 }: {
@@ -32,6 +33,16 @@ export default function EventDatailPage({
       try {
         const data = await getEventByID(params.eventid);
         setEvent(data);
+
+        if (data != null) {
+          const eventTypes: string[] = data.type.map((type: string) => {
+            const eventType = EventType_Data.find(
+              (event) => event.link === type
+            );
+            return eventType ? eventType.title : type;
+          });
+          setEvent({ ...data, type: eventTypes });
+        }
       } catch (error) {
         console.log("ERROR");
       }
@@ -39,8 +50,8 @@ export default function EventDatailPage({
     fetchData();
   }, []);
   return (
-    <main className="w-full h-[400vh] bg-white mt-[70px]">
-      <div className="flex flex-col w-[100%] h-[100%] items-center space-y-14 ">
+    <main className="w-full h-[400vh] bg-neutral-100 pt-[70px]">
+      <div className="flex flex-col w-[100%] h-[100%] items-center space-y-10 ">
         <RunningDetail
           eventName={event?.name}
           date={event.date}

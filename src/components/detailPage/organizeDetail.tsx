@@ -6,9 +6,11 @@ export default function OrganizeDetail({
   eventDetail: string;
 }) {
   return (
-    <div className="bg-white w-[80%] h-[40vh]  text-black overflow-hidden rounded-lg mt-20 ">
-      <h1 className="text-5xl px-10 pt-10 font-bold">About the Event 🏃‍♂️🌟</h1>
-      <p className="text-xl px-10 py-5 indent-16 text-justify">{eventDetail}</p>
+    <div className="w-[80%] h-[40vh] text-black rounded-lg px-5">
+      <h1 className="text-3xl pt-10 font-bold">About the Event 🏃‍♂️🌟</h1>
+      <p className="text-lg py-5 indent-16 text-justify text-gray-800">
+        {eventDetail}
+      </p>
     </div>
   );
 }

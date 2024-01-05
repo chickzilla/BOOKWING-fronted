@@ -11,7 +11,7 @@ export default function PackagePanel({
   province: string;
 }) {
   return (
-    <div className="w-[50%] h-auto flex flex-row flex-wrap space-y-8">
+    <div className="w-[50%] flex flex-row flex-wrap">
       {allDistance.map((d) => (
         <PackageCard distance={d} location={province} date={date} time={time} />
       ))}

@@ -14,7 +14,7 @@ export default function EventCard({ Event }: { Event: Event }) {
   return (
     <Link
       href={`/runningevent/${Event.id}`}
-      className="flex flex-row items-center bg-white w-[100%] h-[100%] justify-between px-5 py-5 rounded-xl shadow-md border-2 border-black hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105"
+      className="flex flex-row items-center bg-white w-[100%] h-[30vh] justify-between px-5 py-5 rounded-xl shadow-md border-2 border-black hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105"
     >
       <div className=" flex flex-col items-start justify-between space-y-2 w-[70%] h-[100%]">
         <div className="text-xl text-black font-semibold text-start my-2">
