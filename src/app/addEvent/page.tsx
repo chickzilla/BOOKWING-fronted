@@ -14,6 +14,7 @@ import getCoordinates from "@/libs/getCoordinates";
 import { getCookie } from "typescript-cookie";
 import getUserProfile from "@/libs/getUserProfile";
 import { User } from "@/interface";
+import DensitySmallIcon from "@mui/icons-material/DensitySmall";
 
 export default function CreateEventPage() {
   const [selectName, setSelectName] = useState<string>("");
@@ -97,7 +98,7 @@ export default function CreateEventPage() {
 
         router.push(`/runningevent/${response.message}`);
       } catch (error) {
-        console.log(error);
+        alert("fail to create event Please Try again with new name");
         setSubmit(false);
       }
     }
@@ -106,8 +107,19 @@ export default function CreateEventPage() {
   return (
     <main className="bg-neutral-100 w-full h-[250vh] flex flex-col items-center py-[70px] text-black">
       <div className="w-[100%] h-[100%] flex flex-col items-center pt-[60px] space-y-10">
-        <div className="text-4xl text-black font-semibold w-[60%] h-[5%]">
+        <div className="text-4xl text-black font-semibold w-[60%] h-[5%] flex flex-row justify-between">
           New Event
+          <Button
+            variant="contained"
+            sx={{ width: "20%", height: "80%" }}
+            onClick={() => {
+              router.push("/OrganizeEvent");
+            }}
+            className="hover:bg-[#B55555] bg-[#CD5C5C] text-sm text-white"
+          >
+            <DensitySmallIcon sx={{ marginRight: "8px" }} />
+            My events
+          </Button>
         </div>
         <CreateEventForm
           SetParentName={(value: string) => {

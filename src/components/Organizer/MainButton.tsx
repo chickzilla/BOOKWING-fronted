@@ -17,7 +17,7 @@ export default function MainButton() {
         className="hover:bg-black bg-[#B22222] text-xl text-white shadow-xl"
         onClick={() => router.push("/addEvent")}
       >
-        <AddIcon />
+        <AddIcon sx={{ marginRight: "8px" }} />
         Add
       </Button>
       <Button
@@ -25,7 +25,7 @@ export default function MainButton() {
         sx={{ width: "20%", height: "50%" }}
         className="hover:bg-black bg-[#003049] text-xl text-white shadow-xl"
       >
-        <EditIcon />
+        <EditIcon sx={{ marginRight: "8px" }} />
         Edit
       </Button>
       <Button
@@ -33,7 +33,7 @@ export default function MainButton() {
         sx={{ width: "20%", height: "50%" }}
         className="hover:bg-black bg-[#5E412F] text-xl text-white shadow-xl"
       >
-        <DeleteIcon />
+        <DeleteIcon sx={{ marginRight: "8px" }} />
         Delete
       </Button>
     </div>

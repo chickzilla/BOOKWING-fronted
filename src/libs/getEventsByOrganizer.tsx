@@ -1,0 +1,16 @@
+const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+export default async function getEventsByOrganizer(organizerUsername: string) {
+  const response = await fetch(
+    `${BackendUrl}/event/organizer?organizer=${organizerUsername}`,
+    {
+      next: { tags: ["events"] },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Fail to fetch event by organizer");
+  }
+
+  return await response.json();
+}
