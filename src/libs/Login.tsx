@@ -1,4 +1,5 @@
 const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { setCookie } from "typescript-cookie";
 
 export default async function Login({
   username,
@@ -9,6 +10,7 @@ export default async function Login({
 }) {
   const response = await fetch(`${BackendUrl}/auth/signin`, {
     method: "POST",
+    //credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },
@@ -21,5 +23,6 @@ export default async function Login({
   if (!response.ok) {
     throw new Error("รักพ่อ ร.10");
   }
+
   return await response.json();
 }

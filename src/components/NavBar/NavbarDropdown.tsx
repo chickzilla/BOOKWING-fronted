@@ -17,7 +17,7 @@ export default function NavbarDropdown() {
   };
 
   return (
-    <div className="w-[100%] flex items-center justify-center text-center hover:cursor-pointer">
+    <div className="w-[100%] flex items-center justify-center text-center hover:cursor-pointer text-center">
       <div
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
@@ -25,7 +25,7 @@ export default function NavbarDropdown() {
         onClick={(e) => setAnchorEl(e.currentTarget)}
         className="h-[100%] flex items-center justify-center w-[100%]"
       >
-        Running Types
+        Types
         <ExpandMoreIcon />
       </div>
       <Menu

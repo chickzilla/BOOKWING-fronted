@@ -7,6 +7,8 @@ import LockIcon from "@mui/icons-material/Lock";
 import { useRouter } from "next/navigation";
 import Login from "@/libs/Login";
 
+import { getCookie, setCookie, getCookies } from "typescript-cookie";
+
 export default function LoginPanel() {
   const router = useRouter();
   const [username, setUsername] = useState("");
@@ -27,6 +29,7 @@ export default function LoginPanel() {
           username,
           password,
         });
+        setCookie("jwt", result.AccessToken);
         router.push("/");
       } catch (error) {
         alert("Username or Password is incorrect");
