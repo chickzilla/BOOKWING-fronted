@@ -6,6 +6,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { useRouter } from "next/navigation";
+import Register from "@/libs/Register";
 
 export default function RegisterPanel() {
   const router = useRouter();
@@ -32,6 +33,41 @@ export default function RegisterPanel() {
   };
   const handlePassword2Change = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword2(event.target.value);
+  };
+
+  const validateEmail = (email: string) => {
+    const emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailTest.test(email);
+  };
+
+  const handleSubmit = async () => {
+    if (
+      !firstname ||
+      !lastname ||
+      !email ||
+      !username ||
+      !password ||
+      !password2
+    ) {
+      alert("Please fill all information");
+    } else if (password != password2) {
+      alert("Password not match");
+    } else if (validateEmail(email) === false) {
+      alert("Please enter valid email");
+    } else {
+      try {
+        const result = await Register({
+          firstname,
+          lastname,
+          email,
+          username,
+          password,
+        });
+        router.push("/login");
+      } catch (e) {
+        alert("fail to register. Try again with new Username");
+      }
+    }
   };
   return (
     <div className="w-[30vw] h-[80vh] bg-white flex flex-col items-center text-black rounded-md shadow-xl py-5 justify-between">
@@ -77,6 +113,7 @@ export default function RegisterPanel() {
       <TextField
         id="outlined-basic"
         label="Email"
+        type="email"
         variant="outlined"
         sx={{
           width: "90%",
@@ -155,7 +192,10 @@ export default function RegisterPanel() {
       />
       <div className="w-[100%] flex flex-col text-center items-center">
         <div className="text-center w-[90%] mb-5">
-          <button className="border-2 border-rose-400 bg-rose-400 text-white py-2 px-3 rounded z-30 w-[100%] font-semibold  hover:text-rose-400 transition-colors hover:bg-white">
+          <button
+            className="border-2 border-rose-400 bg-rose-400 text-white py-2 px-3 rounded z-30 w-[100%] font-semibold  hover:text-rose-400 transition-colors hover:bg-white"
+            onClick={() => handleSubmit()}
+          >
             Register
           </button>
         </div>

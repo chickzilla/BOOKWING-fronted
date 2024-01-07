@@ -1,7 +1,14 @@
 "use client";
 import { useState, ChangeEvent } from "react";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import { TextField } from "@mui/material";
+import { InputAdornment } from "@mui/material";
+import LockIcon from "@mui/icons-material/Lock";
+import { useRouter } from "next/navigation";
+import Login from "@/libs/Login";
 
 export default function LoginPanel() {
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -10,69 +17,85 @@ export default function LoginPanel() {
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
+
+  const handleSubmit = async () => {
+    if (!username || !password) {
+      alert("Please fill all information");
+    } else {
+      try {
+        const result = await Login({
+          username,
+          password,
+        });
+        router.push("/");
+      } catch (error) {
+        alert("Username or Password is incorrect");
+      }
+    }
+  };
   return (
-    <div className="w-[25vw] h-[50vh] text-black shadow-md flex flex-col items-center bg-white">
-      <div className="pt-12 cursor-default">
-        {" "}
-        <h1 className="text-5xl">Login</h1>{" "}
-      </div>
-      <div className="px-20 pt-8 pb-4">
-        <label
-          htmlFor="Username"
-          className="block text-sm font-light px-2 py-1"
-        >
-          Username
-        </label>
-        <input
-          className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
-                    focus:border-b-2 focus:border-rose-500 focus:bg-white 
-                    transition duration-300 ease-out focus:outline-none"
-          id="username"
-          value={username}
-          onChange={(e) => {
-            handleUsernameChange(e);
-          }}
-        ></input>
-      </div>
-      <div className="px-20">
-        <label
-          htmlFor="Password"
-          className="block text-sm font-light px-2 py-1"
-        >
-          Password
-        </label>
-        <input
-          className="w-64 h-12 inline px-2 bg-gray-100 rounded-sm
-                    focus:border-b-2 focus:border-rose-500 focus:bg-white 
-                    transition duration-300 ease-out focus:outline-none"
-          type="password"
-          id="Password"
-          value={password}
-          onChange={(e) => {
-            handlePasswordChange(e);
-          }}
-        ></input>
-      </div>
-      <div className="w-64 ">
-        {/* use link instead */}
-        {/* <p className=" pt-2 text-sm text-gray-500 underline ">Forgot Password?</p> */}
-      </div>
-      <div className="px-20 pt-8 pb-2">
-        <button
-          className="bg-black w-[100px] h-[50px] rounded-md outline-none bg-rose-400 text-white  
-                    hover:border-2 hover:bg-white hover:border-rose-400 hover:text-rose-400 transition-colors"
-          onClick={() => {
-            // get username and password
-          }}
-        >
-          Log-in
-        </button>
-      </div>
-      <div className="w-64 text-center">
-        {/* use link instead */}
-        {/* <p className=" pt-2 text-sm text-gray-500 inline">
-                        Havn't got account yet? <p className="text-sm text-indigo-500 underline inline">Sign-up</p>
-                    </p> */}
+    <div className="w-[30vw] h-[50vh] bg-white flex flex-col items-center text-black rounded-md shadow-xl py-5 justify-between">
+      <div className="text-black text-2xl ">Sign in</div>
+      <TextField
+        id="outlined-basic"
+        label="Username"
+        variant="outlined"
+        required
+        sx={{
+          width: "90%",
+        }}
+        size="small"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          ),
+        }}
+      />
+      <TextField
+        id="outlined-basic"
+        label="Password"
+        variant="outlined"
+        sx={{
+          width: "90%",
+        }}
+        type="password"
+        size="small"
+        required
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <LockIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+      <div className="w-[100%] flex flex-col text-center items-center">
+        <div className="text-center w-[90%] mb-5">
+          <button
+            className="border-2 border-rose-400 bg-rose-400 text-white py-2 px-3 rounded z-30 w-[100%] font-semibold  hover:text-rose-400 transition-colors hover:bg-white"
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            Sign in
+          </button>
+        </div>
+        <div className="text-center w-[90%] border-t-2 pt-5">
+          <button
+            className="border border-black border-2 text-black py-2 px-3 rounded z-30 w-[100%] hover:bg-slate-700 hover:text-white transition-colors"
+            onClick={() => {
+              router.push("/register");
+            }}
+          >
+            Dont have an account? Create new
+          </button>
+        </div>
       </div>
     </div>
   );
