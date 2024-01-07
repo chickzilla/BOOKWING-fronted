@@ -32,11 +32,13 @@ export default function CreateEventPage() {
   const [selectPictureFile, setSelectPictureFile] = useState<File | null>(null);
   const router = useRouter();
   const [submit, setSubmit] = useState<boolean>(false);
+  const [Token, setToken] = useState<string>("");
 
   const [organizer, setOrganizer] = useState<string>("");
   useEffect(() => {
     const fetchOrganizer = async () => {
       const token = getCookie("jwt");
+      setToken(token || "");
       try {
         if (token) {
           const result = await getUserProfile({ token });
@@ -94,7 +96,7 @@ export default function CreateEventPage() {
         const longitude = geocoding.features[0].center[0];
         data.latitude = latidude;
         data.longitude = longitude;
-        const response = await createEvent(data);
+        const response = await createEvent({ Event: data, Token: Token });
 
         router.push(`/runningevent/${response.message}`);
       } catch (error) {

@@ -1,10 +1,14 @@
 import { Event } from "@/interface";
-import { getCookie } from "typescript-cookie";
 
 const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-const Token = getCookie("jwt");
 
-export default async function createEvent(Event: Event) {
+export default async function createEvent({
+  Event,
+  Token,
+}: {
+  Event: Event;
+  Token: string;
+}) {
   const response = await fetch(`${BackendUrl}/event/create`, {
     method: "POST",
     headers: {

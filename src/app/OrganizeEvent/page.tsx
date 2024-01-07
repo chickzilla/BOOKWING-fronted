@@ -1,9 +1,13 @@
+"use client";
+
 import MainButton from "@/components/Organizer/MainButton";
 import ShowOrganizerEvent from "@/components/Organizer/ShowOrganizerEvent";
+import { useState } from "react";
 
 export default function OrganizePage() {
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
   return (
-    <main className="bg-neutral-100 w-full h-[auto] flex flex-col items-center mt-[70px] py-16">
+    <main className="bg-neutral-100 w-full min-h-screen h-[auto] flex flex-col items-center mt-[70px] py-16">
       <div className="w-[100%] h-[100%] flex flex-col items-center text-center space-y-8">
         <div className="w-[80%] h-[20vh] flex flex-col items-center">
           <div className="text-4xl text-black font-semibold w-[100%] h-[60%] flex items-center ">
@@ -15,8 +19,13 @@ export default function OrganizePage() {
             up and Let's Create Memories, One Stride at a Time!
           </div>
         </div>
-        <MainButton />
-        <ShowOrganizerEvent />
+        <MainButton
+          isDeletingFunc={(value: boolean) => {
+            setIsDeleting(value);
+            console.log(value);
+          }}
+        />
+        <ShowOrganizerEvent isDeleting={isDeleting} />
       </div>
     </main>
   );
