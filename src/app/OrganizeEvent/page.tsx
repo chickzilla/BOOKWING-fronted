@@ -16,7 +16,7 @@ export default function OrganizePage() {
           </div>
         </div>
         <MainButton />
-        <ShowOrganizerEvent organizer="user1" />
+        <ShowOrganizerEvent />
       </div>
     </main>
   );

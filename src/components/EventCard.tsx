@@ -26,7 +26,7 @@ export default function EventCard({ Event }: { Event: Event }) {
         <div className="text-sm text-gray-500">
           <CalendarMonthIcon /> {Event.date}
         </div>
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-500 text-start">
           <DirectionsRunIcon /> {eventTypes.join(", ")}
         </div>
       </div>
