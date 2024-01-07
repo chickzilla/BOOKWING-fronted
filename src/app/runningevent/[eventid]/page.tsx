@@ -28,6 +28,7 @@ export default function EventDatailPage({
     time: "",
     package: [],
     description: "",
+    organizer: "",
   });
   useEffect(() => {
     const fetchData = async () => {

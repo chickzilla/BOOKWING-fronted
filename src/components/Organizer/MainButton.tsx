@@ -37,7 +37,7 @@ export default function MainButton({
         }}
       >
         <DeleteIcon sx={{ marginRight: "8px" }} />
-        {isDeleting ? "Deleting" : "Delete"}
+        {isDeleting ? "Chose to delete" : "Delete"}
       </Button>
     </div>
   );
