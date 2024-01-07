@@ -11,6 +11,7 @@ export interface Event {
   time: string;
   package: string[];
   description: string;
+  organizer: string;
 }
 
 export interface EventName {
@@ -42,4 +43,12 @@ export interface province {
 
 export interface Amphur {
   name_en: string;
+}
+
+export interface User {
+  firstname: string;
+  lastname: string;
+  email: string;
+  username: string;
+  password: string;
 }

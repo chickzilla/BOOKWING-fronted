@@ -16,24 +16,6 @@ export default function RegisterPanel() {
   const [password2, setPassword2] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value);
-  };
-  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-  const handleFirstnameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFirstname(event.target.value);
-  };
-  const handleLastnameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setLastname(event.target.value);
-  };
-  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-  const handlePassword2Change = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword2(event.target.value);
-  };
 
   const validateEmail = (email: string) => {
     const emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

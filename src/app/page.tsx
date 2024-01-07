@@ -9,8 +9,6 @@ import CreateHome from "@/components/CreateEvent/CreateHome";
 export default function Home() {
   return (
     <>
-      <header></header>
-
       <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center pt-[70px]">
         <HomeHeader />
         <HomeCardWithText />

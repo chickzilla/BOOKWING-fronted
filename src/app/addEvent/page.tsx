@@ -4,13 +4,16 @@ import CreateEventForm from "@/components/CreateEvent/CreateEventForm";
 import DetailForm from "@/components/CreateEvent/DetailForm";
 import DateandLocationForm from "@/components/CreateEvent/DateandLocationForm";
 import PackageForm from "@/components/CreateEvent/PackageForm";
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { Event } from "@/interface";
 import { useRouter } from "next/navigation";
 import uploadFile from "@/libs/uploadFile";
 import createEvent from "@/libs/createEvent";
 import getCoordinates from "@/libs/getCoordinates";
+import { getCookie } from "typescript-cookie";
+import getUserProfile from "@/libs/getUserProfile";
+import { User } from "@/interface";
 
 export default function CreateEventPage() {
   const [selectName, setSelectName] = useState<string>("");
@@ -29,6 +32,24 @@ export default function CreateEventPage() {
   const router = useRouter();
   const [submit, setSubmit] = useState<boolean>(false);
 
+  const [organizer, setOrganizer] = useState<string>("");
+  useEffect(() => {
+    const fetchOrganizer = async () => {
+      const token = getCookie("jwt");
+      try {
+        if (token) {
+          const result = await getUserProfile({ token });
+          const user: User = result.user;
+          setOrganizer(user.username);
+        }
+      } catch (error) {
+        console.log(error);
+        setOrganizer("");
+      }
+    };
+    fetchOrganizer();
+  }, []);
+
   const SubmitHandler = async () => {
     if (
       !selectName ||
@@ -44,6 +65,8 @@ export default function CreateEventPage() {
       !selectlongitude
     ) {
       alert("Please fill all information");
+    } else if (!organizer) {
+      alert("Sorry You are not organizer");
     } else {
       const data: Event = {
         id: "0",
@@ -58,11 +81,11 @@ export default function CreateEventPage() {
         picture: selectPicture,
         latitude: selectlatitude,
         longitude: selectlongitude,
+        organizer: organizer,
       };
       try {
         setSubmit(true);
-        //console.log("location", selectLocation);
-        //console.log("province", selectProvince);
+
         const file = await uploadFile(selectPictureFile);
         data.picture = file.url;
         const geocoding = await getCoordinates(selectProvince);
