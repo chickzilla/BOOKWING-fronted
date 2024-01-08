@@ -9,12 +9,12 @@ import CreateHome from "@/components/CreateEvent/CreateHome";
 export default function Home() {
   return (
     <>
-      <main className="bg-neutral-100 w-full h-[400vh] flex flex-col items-center pt-[70px]">
+      <main className="bg-neutral-100 dark:bg-gray-900 w-full h-[400vh] flex flex-col items-center pt-[70px]">
         <HomeHeader />
         <HomeCardWithText />
         <MapHome />
         <ClosingMain />
-        <div className="w-full flex flex-col items-center bg-gradient-to-b from-neutral-100 to-[#FFC5C0] pt-10">
+        <div className="w-full flex flex-col items-center bg-gradient-to-b from-neutral-100 dark:from-gray-900 dark:to-indigo-950 to-[#FFC5C0] pt-10">
           <CreateHome />
           <HomeSlogan />
           <PictureSlogan />

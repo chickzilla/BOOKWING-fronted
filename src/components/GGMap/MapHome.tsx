@@ -5,10 +5,10 @@ export default function MapHome() {
   return (
     <div className="w-[80%] h-[25vh] space-x-12 items-start mt-24 mb-10 flex flex-row ">
       <div className="space-y-12 w-[50%]">
-        <div className="text-black w-full font-bold text-4xl text-start">
+        <div className="text-black dark:text-gray-200 w-full font-bold text-4xl text-start">
           Search by Map
         </div>
-        <div className="text-gray-600 w-[100%]">
+        <div className="text-gray-600 dark:text-gray-400 w-[100%]">
           "Embark on the Ultimate Adventure – Let's Find Your Event with Map Box
           ! 🗺️ Discover Exciting Running Events Near You. Don't Miss Out –
           Secure Your Spot Now and Navigate Your Way to Running Bliss! 🏃‍♂️🌟"

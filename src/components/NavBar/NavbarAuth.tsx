@@ -47,11 +47,11 @@ export default function NavbarAuth() {
     window.location.href = "/";
   };
   return (
-    <div className="h-full w-[100%] flex flex-row items-center text-white font-md justify-between pr-2">
-      <div className="h-[100%] flex items-center justify-center pr-8 w-[50%] overflow-hidden items-center flex flex-row text-center text-sm">
+    <div className="h-full w-[90%] flex flex-row items-center text-white font-md justify-between pr-2">
+      <div className="h-[50%] flex items-center justify-center pr-8 w-[50%] overflow-hidden items-center flex flex-row text-center text-xs">
         {isToken ? `${role} : ${username}` : "Hi Guest"}
       </div>
-      <div className=" h-[100%] flex items-center justify-center w-[25%]">
+      <div className=" h-[100%] flex items-center justify-center w-[30%]">
         <Link
           href="/register"
           className="border border-white p-2 hover:bg-white hover:text-[#B22222] transition duration-300 rounded-md w-[100%] text-center"
@@ -59,7 +59,7 @@ export default function NavbarAuth() {
           Create account
         </Link>
       </div>
-      <div className="h-[100%] flex items-center justify-center pr-8 pl-5 w-[25%]">
+      <div className="h-[100%] flex items-center justify-center w-[20%] ">
         {isToken ? (
           <div
             onClick={() => {
