@@ -24,7 +24,8 @@ export default function LoginPanel() {
           password,
         });
         setCookie("jwt", result.AccessToken);
-        router.push("/");
+        // router.push("/");
+        location.href = "/";
       } catch (error) {
         alert("Username or Password is incorrect");
       }

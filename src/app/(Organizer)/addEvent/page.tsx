@@ -18,6 +18,21 @@ import DensitySmallIcon from "@mui/icons-material/DensitySmall";
 import { revalidateTag } from "next/cache";
 
 export default function CreateEventPage() {
+  // REDIRECT TO LOGIN IF NOT AUTHENTICATED
+  const [isToken, setIsToken] = useState<boolean>(false);
+  useEffect(() => {
+    const CheckToken = () => {
+      const getToken = getCookie("jwt");
+      if (!getToken) {
+        window.location.href = "/login";
+      } else {
+        setIsToken(true);
+      }
+    };
+    CheckToken();
+  }, []);
+  // END REDIRECT TO LOGIN IF NOT AUTHENTICATED
+
   const [selectName, setSelectName] = useState<string>("");
   const [selectType, setSelectType] = useState<string[]>([]);
   const [allDescription, setAllDescription] = useState<string>("DESCRIPTION");
@@ -107,7 +122,9 @@ export default function CreateEventPage() {
     }
   };
 
-  return (
+  return !isToken ? (
+    <main></main>
+  ) : (
     <main className="bg-neutral-100 w-full h-[250vh] flex flex-col items-center py-[70px] text-black">
       <div className="w-[100%] h-[100%] flex flex-col items-center pt-[60px] space-y-10">
         <div className="text-4xl text-black font-semibold w-[60%] h-[5%] flex flex-row justify-between">
