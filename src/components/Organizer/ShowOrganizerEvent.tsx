@@ -76,6 +76,9 @@ export default function ShowOrganizerEvent({
     try {
       const result = await deleteEvent({ id, token: Token });
       setIsDelete(!isDelete);
+      // delete from state
+      const newEventList = eventList.filter((event) => event.id !== id);
+      setEventList(newEventList);
       alert("delete event success");
     } catch (error) {
       alert("fail to delete event Please Try again");

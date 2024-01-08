@@ -5,7 +5,7 @@ const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 export default async function getEventByID(id: string) {
   const response = await fetch(`${BackendUrl}/event/id?id=${id}`, {
     next: { tags: ["events"] },
-    cache: "no-store",
+
   });
   //console.log("backend url", BackendUrl);
 

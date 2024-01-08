@@ -22,7 +22,7 @@ export default function NavbarAuth() {
     } else {
       setIsToken(false);
     }
-  });
+  }, []);
 
   useEffect(() => {
     const fetchUser = async () => {

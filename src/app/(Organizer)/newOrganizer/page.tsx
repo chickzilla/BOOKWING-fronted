@@ -1,6 +1,17 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default async function newOrganizer() {
+  const router = useRouter();
+  const hadlerChangeRole = async () => {
+    try {
+      router.push("/Organizer/organizer");
+    } catch (error) {
+      alert("Error please try again later");
+    }
+  };
   return (
     <main className="bg-neutral-100 w-full h-screen flex flex-col items-center text-black">
       <div className="items-center flex flex-row text-center w-full h-full">
