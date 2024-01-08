@@ -64,6 +64,7 @@ export default function EventDatailPage({
         <OrganizeDetail eventDetail={event.description} />
         <IncludeInEntry allInclude={event.package} />
         <PackagePanel
+          id={params.eventid}
           allDistance={event.type}
           date={event.date}
           time={event.time}

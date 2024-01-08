@@ -1,10 +1,12 @@
 import PackageCard from "./packageCard";
 export default function PackagePanel({
+  id,
   allDistance,
   date,
   time,
   province,
 }: {
+  id: string;
   allDistance: string[];
   date: string;
   time: string;
@@ -18,6 +20,7 @@ export default function PackagePanel({
       {allDistance.map((d) => (
         <div className="w-1/2 h-[50vh]" key={d}>
           <PackageCard
+            id={id}
             distance={d}
             location={province}
             date={date}

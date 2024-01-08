@@ -3,12 +3,15 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import EventType_Data from "@/data/eventType";
+import Link from "next/link";
 export default function PackageCard({
+  id,
   distance,
   location,
   date,
   time,
 }: {
+  id: string;
   distance: string;
   location: string;
   date: string;
@@ -40,10 +43,12 @@ export default function PackageCard({
         <AccessTimeIcon />
         {time}
       </p>
-      <button className="transition-colors w-20 h-10 text-white bg-rose-800 rounded-md hover:bg-white hover:text-rose-800 hover:border hover:border-rose-800 duration-300">
-        {" "}
-        Join us{" "}
-      </button>
+      <Link href={`../booking/${id}/${distance}`}>
+        <button className="transition-colors w-20 h-10 text-white bg-rose-800 rounded-md hover:bg-white hover:text-rose-800 hover:border hover:border-rose-800 duration-300">
+          {" "}
+          Join us{" "}
+        </button>
+      </Link>
     </div>
   );
 }

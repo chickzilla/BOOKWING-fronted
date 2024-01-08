@@ -4,6 +4,13 @@
   ],
   "hints": {
     "no-inline-styles": "off",
-    "typescript-config/is-valid": "off"
+    "typescript-config/is-valid": "off",
+    "axe/aria": [
+      "default",
+      {
+        "aria-allowed-attr": "off",
+        "aria-valid-attr-value": "off"
+      }
+    ]
   }
 }
