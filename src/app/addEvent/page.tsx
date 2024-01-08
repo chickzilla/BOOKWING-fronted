@@ -15,6 +15,7 @@ import { getCookie } from "typescript-cookie";
 import getUserProfile from "@/libs/getUserProfile";
 import { User } from "@/interface";
 import DensitySmallIcon from "@mui/icons-material/DensitySmall";
+import { revalidateTag } from "next/cache";
 
 export default function CreateEventPage() {
   const [selectName, setSelectName] = useState<string>("");
