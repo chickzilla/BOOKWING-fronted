@@ -1,6 +1,7 @@
 "use client";
-
-import React from "react";
+import EventType_Data from "@/data/eventType";
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   Modal,
   ModalContent,
@@ -14,43 +15,35 @@ import {
 
 export default function ModalComp() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+  const [mouseEnter , setMouseEnter ] = useState<boolean>(false);
   return (
     <>
-      <Button onPress={onOpen}>Open Modal</Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Button key="3xl" onPress={onOpen} className="bg-red">Types</Button>
+      <Modal size="3xl" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
+              <ModalHeader className="flex flex-col gap-1 text-3xl font-bold">
+                Event Type 🏃‍♂️
               </ModalHeader>
-              <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
+              <ModalBody className="text-black">
+                <div className="w-full border-t-zinc-400 border-2 mt-1" />
+                <div className="grid gap-x-6 gap-y-6 grid-cols-3">
+                  {
+                    EventType_Data.map((obj,index) => (
+                      <div className="text-xl transition-all p-2 text-black inline flex flex-row text-center items-center justify-center rounded-md hover:bg-rose-400 hover:text-white "
+                      // onMouseEnter={setMouseEnter(true)} onMouseLeave={setMouseEnter(false)}
+                      >
+                        <Link className="inline" href={`/running_type/${obj.link}`}> {obj.title} </Link>
+                      </div>
+                      
+                    ))
+                  }
+                </div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
                 </Button>
               </ModalFooter>
             </>

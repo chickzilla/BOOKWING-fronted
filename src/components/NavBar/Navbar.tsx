@@ -4,7 +4,7 @@ import RunCircleIcon from "@mui/icons-material/RunCircle";
 import Link from "next/link";
 import NavbarAuth from "./NavbarAuth";
 import NavbarDropdown from "./NavbarDropdown";
-
+import ModalComp from "./modalComp";
 export default function Navbar() {
   return (
     <nav className="bg-[#B22222] fixed w-[100vw] h-[70px] z-20 top-0 start-0 flex flex-row items-center justify-between">
@@ -29,7 +29,8 @@ export default function Navbar() {
             <Link href="/mapPage">Map</Link>
           </div>
           <div className="w-[50%] h-[100%] flex items-center justify-center text-center">
-            <NavbarDropdown />
+            {/* <NavbarDropdown /> */}
+            <ModalComp/>
           </div>
         </div>
       </div>
