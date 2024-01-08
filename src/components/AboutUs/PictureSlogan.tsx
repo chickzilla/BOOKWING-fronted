@@ -15,11 +15,13 @@ export default function PictureSlogan() {
         />
       </div>
       <div className="w-[40%] h-[100%] flex flex-col justify-center items-center text-center space-y-12">
-        <div className="w-[100%] text-gray-700">
+        <div className="w-[100%] text-gray-700 dark:text-gray-400">
           "Bounding through the shadows with a melody in my heart and a guitar
           in hand, I am Harmony Hurdler. 🎸🎶 I am a musician, a runner, yoyo
         </div>
-        <div className="w-[100%] text-black">- Harmony Hurdler </div>
+        <div className="w-[100%] text-black dark:text-gray-200">
+          - Harmony Hurdler
+        </div>
       </div>
     </div>
   );

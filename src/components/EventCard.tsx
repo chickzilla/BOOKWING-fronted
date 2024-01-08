@@ -14,19 +14,19 @@ export default function EventCard({ Event }: { Event: Event }) {
   return (
     <Link
       href={`/runningevent/${Event.id}`}
-      className="flex flex-row items-center bg-white w-[100%] h-[30vh] justify-between px-5 py-5 rounded-xl shadow-md border-2 border-black hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105"
+      className="flex flex-row items-center bg-white dark:bg-gray-800 w-[100%] h-[30vh] justify-between px-5 py-5 rounded-xl shadow-md border-2 border-black hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105"
     >
       <div className=" flex flex-col items-start justify-between space-y-2 w-[70%] h-[100%]">
-        <div className="text-xl text-black font-semibold text-start my-2">
+        <div className="text-xl text-black dark:text-gray-200 font-semibold text-start my-2">
           {Event.name}
         </div>
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-500 dark:text-gray-400">
           <LocationOnIcon /> {Event.province}
         </div>
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-500 dark:text-gray-400">
           <CalendarMonthIcon /> {Event.date}
         </div>
-        <div className="text-sm text-gray-500 text-start">
+        <div className="text-sm text-gray-500 text-start dark:text-gray-400">
           <DirectionsRunIcon /> {eventTypes.join(", ")}
         </div>
       </div>

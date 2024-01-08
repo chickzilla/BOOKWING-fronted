@@ -16,12 +16,14 @@ export default function HomeCardItem({
     >
       <div className="w-full h-[60%]">
         <DirectionsRunIcon
-          className="icon transition-transform transform-gpu "
+          className="icon transition-transform transform-gpu dark:text-gray-400"
           sx={{ color: "red", width: "100%", height: "100%" }}
         />
       </div>
-      <div className="text-black h-[20%] w-full">{title}</div>
-      <div className="text-black text-gray-500 h-[20%] w-full">
+      <div className="text-black dark:text-gray-200 h-[20%] w-full">
+        {title}
+      </div>
+      <div className="text-black text-gray-500 dark:text-gray-400 h-[20%] w-full">
         {description}
       </div>
     </Link>

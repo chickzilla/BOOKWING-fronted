@@ -5,10 +5,10 @@ export default function CreateHome() {
   return (
     <div className="w-[80%] h-[25vh] space-y-12 items-start mb-10 flex flex-col">
       <div className="space-y-12 w-[100%] h-[50%] mb-5">
-        <div className="text-black w-full font-bold text-4xl text-center">
+        <div className="text-black dark:text-gray-200 w-full font-bold text-4xl text-center">
           Become Organizer and Add Your Event
         </div>
-        <div className="text-gray-600 w-[100%]">
+        <div className="text-gray-600 dark:text-gray-400 w-[100%]">
           "Host the Ultimate Running Experience – Add Your Event! 🎉🏃‍♂️ Shine a
           Spotlight on Your Exciting Runs. Don't Miss Out – Secure Your Spot Now
           and Guide Participants to Running Bliss! ⭐️"
