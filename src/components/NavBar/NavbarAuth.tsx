@@ -42,8 +42,7 @@ export default function NavbarAuth() {
   const handleSignOut = () => {
     removeCookie("jwt");
     setIsToken(false);
-    //window.location.reload();
-    router.push("/");
+    window.location.href = "/";
   };
   return (
     <div className="h-full w-[100%] flex flex-row items-center text-white font-md justify-between pr-2">

@@ -2,17 +2,36 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { getCookie } from "typescript-cookie";
 
-export default async function newOrganizer() {
+export default function newOrganizer() {
+  const [isToken, setIsToken] = useState<boolean>(false);
+
+  useEffect(() => {
+    const CheckToken = () => {
+      const getToken = getCookie("jwt");
+      if (!getToken) {
+        window.location.href = "/login";
+      } else {
+        setIsToken(true);
+      }
+    };
+    CheckToken();
+  }, []);
+
   const router = useRouter();
+
   const hadlerChangeRole = async () => {
     try {
-      router.push("/Organizer/organizer");
+      router.push("/OrganizeEvent");
     } catch (error) {
       alert("Error please try again later");
     }
   };
-  return (
+  return !isToken ? (
+    <main></main>
+  ) : (
     <main className="bg-neutral-100 w-full h-screen flex flex-col items-center text-black">
       <div className="items-center flex flex-row text-center w-full h-full">
         <div className="w-[40%] h-full">
@@ -37,7 +56,12 @@ export default async function newOrganizer() {
             #EventPerfection #BookWingMagic
           </div>
           <div className="w-[80%] h-[20%] flex justify-center">
-            <button className="border-2 border-black text-white py-2 px-3 rounded-xl w-[100%] font-semibold  hover:text-blue-950 transition-colors hover:bg-white bg-blue-950 text-2xl uration-300">
+            <button
+              className="border-2 border-black text-white py-2 px-3 rounded-xl w-[100%] font-semibold  hover:text-blue-950 transition-colors hover:bg-white bg-blue-950 text-2xl uration-300"
+              onClick={() => {
+                hadlerChangeRole();
+              }}
+            >
               Change role to organizer
             </button>
           </div>

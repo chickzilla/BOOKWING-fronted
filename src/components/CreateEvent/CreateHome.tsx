@@ -16,7 +16,7 @@ export default function CreateHome() {
       </div>
       <div className="h-[50%] w-[100%] items-center text-center flex justify-center">
         <Link
-          href="/OrganizeEvent"
+          href="/newOrganizer"
           className="h-[100%] w-[100%] items-center text-center flex justify-center"
         >
           <div className="flex flex-row items-center bg-blue-950 w-[40%] h-[100%] justify-center rounded-xl shadow-md border-2 border-black hover:cursor-pointer duration-300 hover:shadow-lg hover:scale-105 text-black text-2xl font-semibold text-blue-50">
