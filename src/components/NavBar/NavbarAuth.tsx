@@ -12,6 +12,7 @@ export default function NavbarAuth() {
   const [isToken, setIsToken] = useState<boolean>(false);
   const [token, setToken] = useState<string>("");
   const [username, setUsername] = useState<string>("");
+  const [role, setRole] = useState<string>("");
   const router = useRouter();
 
   useEffect(() => {
@@ -31,6 +32,7 @@ export default function NavbarAuth() {
           const result = await getUserProfile({ token });
           const user: User = result.user;
           setUsername(user.username);
+          setRole(user.role);
         } catch (error) {
           console.log(error);
         }
@@ -47,7 +49,7 @@ export default function NavbarAuth() {
   return (
     <div className="h-full w-[100%] flex flex-row items-center text-white font-md justify-between pr-2">
       <div className="h-[100%] flex items-center justify-center pr-8 w-[50%] overflow-hidden items-center flex flex-row text-center text-sm">
-        {isToken ? `Runner: ${username}` : "Hi Guest"}
+        {isToken ? `${role} : ${username}` : "Hi Guest"}
       </div>
       <div className=" h-[100%] flex items-center justify-center w-[25%]">
         <Link
