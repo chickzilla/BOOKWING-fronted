@@ -14,9 +14,11 @@ export default function Home() {
         <HomeCardWithText />
         <MapHome />
         <ClosingMain />
-        <CreateHome />
-        <HomeSlogan />
-        <PictureSlogan />
+        <div className="w-full flex flex-col items-center bg-gradient-to-b from-neutral-100 to-[#FFC5C0] pt-10">
+          <CreateHome />
+          <HomeSlogan />
+          <PictureSlogan />
+        </div>
       </main>
     </>
   );

@@ -3,7 +3,7 @@ import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 
 export default function CreateHome() {
   return (
-    <div className="w-[80%] h-[25vh] space-y-12 items-start mt-20 mb-10 flex flex-col">
+    <div className="w-[80%] h-[25vh] space-y-12 items-start mb-10 flex flex-col">
       <div className="space-y-12 w-[100%] h-[50%] mb-5">
         <div className="text-black w-full font-bold text-4xl text-center">
           Become Organizer and Add Your Event

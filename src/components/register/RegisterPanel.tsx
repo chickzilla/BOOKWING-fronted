@@ -45,6 +45,7 @@ export default function RegisterPanel() {
           username,
           password,
         });
+        alert("Register success");
         router.push("/login");
       } catch (e) {
         alert("fail to register. Try again with new Username");

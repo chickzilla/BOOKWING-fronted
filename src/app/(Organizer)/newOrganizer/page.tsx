@@ -4,17 +4,36 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getCookie } from "typescript-cookie";
+import changeRoleOrganizer from "@/libs/changeRoleOrganizer";
+import getUserProfile from "@/libs/getUserProfile";
+import { User } from "@/interface";
 
 export default function newOrganizer() {
   const [isToken, setIsToken] = useState<boolean>(false);
+  const [isOrganizer, setIsOrganizer] = useState<boolean>(true);
+  const [JWTToken, setJWTToken] = useState<string>("");
 
   useEffect(() => {
-    const CheckToken = () => {
+    const CheckToken = async () => {
       const getToken = getCookie("jwt");
       if (!getToken) {
         window.location.href = "/login";
       } else {
         setIsToken(true);
+        setJWTToken(getToken);
+        try {
+          const result = await getUserProfile({ token: getToken });
+          const user: User = result.user;
+          if (user.role === "organizer") {
+            setIsOrganizer(true);
+            window.location.href = "/OrganizeEvent";
+          } else {
+            //alert(user.role);
+            setIsOrganizer(false);
+          }
+        } catch (error) {
+          alert("Error please try again later");
+        }
       }
     };
     CheckToken();
@@ -24,12 +43,14 @@ export default function newOrganizer() {
 
   const hadlerChangeRole = async () => {
     try {
+      changeRoleOrganizer(JWTToken);
+      alert("Change role to organizer success");
       router.push("/OrganizeEvent");
     } catch (error) {
       alert("Error please try again later");
     }
   };
-  return !isToken ? (
+  return !isToken || isOrganizer ? (
     <main></main>
   ) : (
     <main className="bg-neutral-100 w-full h-screen flex flex-col items-center text-black">
@@ -39,6 +60,7 @@ export default function newOrganizer() {
             src="/img/Organizer_Banner.jpg"
             width={100}
             height={100}
+            priority
             alt="Organizer Banner"
             sizes="100"
             className="w-full h-full object-fill object-center"
