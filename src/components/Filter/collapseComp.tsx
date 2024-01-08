@@ -1,4 +1,4 @@
-export default function CollapseComp({ filterName }: { filterName: string }) {
+export default function CollapseComp({ filterName,filterArray }: { filterName: string , filterArray : string[] }) {
   return (
     <div className="relative w-full overflow-hidden mt-1 rounded-md ">
       <input
@@ -25,53 +25,24 @@ export default function CollapseComp({ filterName }: { filterName: string }) {
         </svg>
       </div>
       <div
-        className="bg-gray-100 text-gray-500 overflow-hidden max-h-0 peer-checked:max-h-80 
+        className="bg-gray-100 text-gray-500 overflow-scroll max-h-0 peer-checked:max-h-80 
             transition-tranfrom duration-500"
       >
-        <div className="p-1">
-          <input
+        {
+        filterArray.map((element, index) => (
+          <div className="p-1 flex flex-row " key={index}>
+            <input
             className="m-1"
             type="checkbox"
-            id="vehicle1"
-            name="vehicle1"
-            value="Bike"
-          />
-          <label htmlFor="vehicle1"> Bangkok</label>
-          <br></br>
-        </div>
-        <div className="p-1">
-          <input
-            className="m-1"
-            type="checkbox"
-            id="vehicle1"
-            name="vehicle1"
-            value="Bike"
-          />
-          <label htmlFor="vehicle1"> Suohan</label>
-          <br></br>
-        </div>
-        <div className="p-1">
-          <input
-            className="m-1"
-            type="checkbox"
-            id="vehicle1"
-            name="vehicle1"
-            value="Bike"
-          />
-          <label htmlFor="vehicle1"> Rayong</label>
-          <br></br>
-        </div>
-        <div className="p-1">
-          <input
-            className="m-1"
-            type="checkbox"
-            id="vehicle1"
-            name="vehicle1"
-            value="Bike"
-          />
-          <label htmlFor="vehicle1"> ChiangMai</label>
-          <br></br>
-        </div>
+            id={index.toString()}
+            name={element}
+            value={element}
+            />
+            <label htmlFor={index.toString()}> {element} </label>
+            <br />
+          </div>
+        ))
+        }
       </div>
     </div>
   );
