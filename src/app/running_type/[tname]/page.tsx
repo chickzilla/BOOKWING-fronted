@@ -45,7 +45,7 @@ export default async function TypePage({
           </div>
         </div>
         <div className="h-[70%] w-[80%] flex flex-row justify-center space-x-12">
-          <div className="w-[20%] h-[40%] top-[120px] sticky border-2 border-black rounded-xl p-2 bg-white">
+          <div className="w-[20%] h-[80%] top-[120px] sticky border-2 border-black rounded-xl p-2 bg-white">
             <FilterType />
           </div>
           <div className="w-[80%] h-[100%]">
