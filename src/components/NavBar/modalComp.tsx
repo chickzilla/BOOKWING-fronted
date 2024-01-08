@@ -26,7 +26,7 @@ export default function ModalComp() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-3xl font-bold text-black">
-                Event Type 🏃‍♂️
+                Event Type 🏃‍♂️ ดาว
               </ModalHeader>
               <ModalBody className="text-black">
                 <div className="w-full border-t-zinc-400 border-2 mt-1" />

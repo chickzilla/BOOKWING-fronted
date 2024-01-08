@@ -1,4 +1,14 @@
+"use client";
+import { useState } from "react";
+
+
 export default function CollapseComp({ filterName,filterArray }: { filterName: string , filterArray : string[] }) {
+  const [provinceSelected, setProvinceSelected] = useState<string[]>([]);
+  
+
+
+
+
   return (
     <div className="relative w-full overflow-hidden mt-1 rounded-md ">
       <input
@@ -37,6 +47,7 @@ export default function CollapseComp({ filterName,filterArray }: { filterName: s
             id={index.toString()}
             name={element}
             value={element}
+            
             />
             <label htmlFor={index.toString()}> {element} </label>
             <br />
