@@ -7,10 +7,13 @@ import { Event } from "@/interface";
 import EventType_Data from "@/data/eventType";
 
 export default function EventCard({ Event }: { Event: Event }) {
-  const eventTypes = Event.type.map((type) => {
-    const eventType = EventType_Data.find((event) => event.link === type);
-    return eventType ? eventType.title : type;
-  });
+  const eventTypes = Array.isArray(Event.type)
+    ? Event.type.map((type) => {
+        const eventType = EventType_Data.find((event) => event.link === type);
+        return eventType ? eventType.title : type;
+      })
+    : [Event.type];
+
   return (
     <Link
       href={`/runningevent/${Event.id}`}

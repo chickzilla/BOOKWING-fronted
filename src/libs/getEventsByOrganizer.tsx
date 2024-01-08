@@ -8,7 +8,6 @@ export default async function getEventsByOrganizer(organizerUsername: string) {
     `${BackendUrl}/event/organizer?organizer=${organizerUsername}`,
     {
       next: { tags: ["events"] },
-      cache: "no-store",
     }
   );
 
