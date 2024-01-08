@@ -25,7 +25,7 @@ export default function ModalComp() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 text-3xl font-bold text-black">
+              <ModalHeader className="flex flex-col gap-1 text-3xl font-bold text-black dark:text-gray-200">
                 Event Type 🏃‍♂️ ดาว
               </ModalHeader>
               <ModalBody className="text-black">
@@ -33,7 +33,7 @@ export default function ModalComp() {
                 <div className="grid gap-x-6 gap-y-6 grid-cols-3">
                   {EventType_Data.map((obj, index) => (
                     <div
-                      className="text-xl transition-all p-2 text-black inline flex flex-row text-center items-center justify-center rounded-md hover:bg-rose-400 hover:text-white "
+                      className="text-xl transition-all p-2 text-black dark:text-gray-200 inline flex flex-row text-center items-center justify-center rounded-md hover:bg-rose-400 dark:hover:bg-gray-600 hover:text-white "
                       // onMouseEnter={setMouseEnter(true)} onMouseLeave={setMouseEnter(false)}
                     >
                       <Link
