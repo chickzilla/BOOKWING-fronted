@@ -52,12 +52,14 @@ export default function NavbarAuth() {
         {isToken ? `${role} : ${username}` : "Hi Guest"}
       </div>
       <div className=" h-[100%] flex items-center justify-center w-[30%]">
-        <Link
-          href="/register"
-          className="border border-white p-2 hover:bg-white hover:text-[#B22222] transition duration-300 rounded-md w-[100%] text-center"
-        >
-          Create account
-        </Link>
+        {!isToken && (
+          <Link
+            href="/register"
+            className="border border-white p-2 hover:bg-white hover:text-[#B22222] transition duration-300 rounded-md w-[100%] text-center"
+          >
+            Create account
+          </Link>
+        )}
       </div>
       <div className="h-[100%] flex items-center justify-center w-[20%] ">
         {isToken ? (
