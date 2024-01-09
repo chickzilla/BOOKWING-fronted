@@ -32,8 +32,10 @@ export default function LoginPanel() {
     }
   };
   return (
-    <div className="w-[30vw] h-[50vh] bg-white flex flex-col items-center text-black rounded-md shadow-xl py-5 justify-between">
-      <div className="text-black text-2xl ">Sign in</div>
+    <div className="w-[30vw] h-[50vh] bg-white dark:bg-gray-400 flex flex-col items-center text-black rounded-md shadow-xl py-5 justify-between">
+      <div className="text-black text-2xl font-semibold dark:text-gray-800">
+        Sign in
+      </div>
       <TextField
         id="outlined-basic"
         label="Username"
@@ -76,7 +78,7 @@ export default function LoginPanel() {
       <div className="w-[100%] flex flex-col text-center items-center">
         <div className="text-center w-[90%] mb-5">
           <button
-            className="border-2 border-rose-400 bg-rose-400 text-white py-2 px-3 rounded z-30 w-[100%] font-semibold  hover:text-rose-400 transition-colors hover:bg-white"
+            className="border-2 border-rose-400 bg-rose-400 text-white py-2 px-3 rounded z-30 w-[100%] font-semibold  hover:text-rose-400 transition-colors hover:bg-white dark:bg-slate-700 dark:border-slate-700 dark:hover:bg-gray-400 dark:hover:text-slate-700"
             onClick={() => {
               handleSubmit();
             }}
@@ -84,7 +86,7 @@ export default function LoginPanel() {
             Sign in
           </button>
         </div>
-        <div className="text-center w-[90%] border-t-2 pt-5">
+        <div className="text-center w-[90%] border-t-2 pt-5 dark:border-t-slate-700">
           <button
             className="border border-black border-2 text-black py-2 px-3 rounded z-30 w-[100%] hover:bg-slate-700 hover:text-white transition-colors"
             onClick={() => {

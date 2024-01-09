@@ -1,14 +1,25 @@
+"use client";
+
 import getEventsByProvince from "@/libs/getEventsByProvince";
 import { Event } from "@/interface";
 import EventCard from "../EventCard";
+import { useEffect, useState } from "react";
 
-export default async function Closing() {
-  let events: Event[] = [];
-  try {
-    events = await getEventsByProvince("Bangkok");
-  } catch (error) {
-    events = [];
-  }
+export default function Closing() {
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getEventsByProvince("Bangkok");
+        setEvents(data);
+      } catch (error) {
+        console.log("ERROR FETCHING DATA BY PROVINCE");
+        setEvents([]);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-col w-[100%] h-[80%] pt-5 overflow-y-auto space-y-10 px-20 ">

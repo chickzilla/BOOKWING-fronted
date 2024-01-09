@@ -1,3 +1,5 @@
+"use client";
+
 import FilterType from "@/components/TypePage/FilterType";
 import NavBarType from "@/components/NavBarType/NavBarType";
 import ShowCard from "@/components/TypePage/ShowCard";
@@ -5,22 +7,25 @@ import getEventsByTypes from "@/libs/getEventsByTypes";
 import { TypeEvent } from "@/interface";
 import { Event } from "@/interface";
 import EventType_Data from "@/data/eventType";
+import { useEffect, useState } from "react";
 
-export default async function TypePage({
-  params,
-}: {
-  params: { tname: string };
-}) {
-  let EventByType: Event[] = [];
-  let count = 0;
-
-  try {
-    EventByType = await getEventsByTypes(params.tname);
-    count = EventByType.length;
-  } catch (error) {
-    EventByType = [];
-    count = 0;
-  }
+export default function TypePage({ params }: { params: { tname: string } }) {
+  const [countEvent, setCountEvent] = useState<number>(0);
+  const [events, setEvents] = useState<Event[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getEventsByTypes(params.tname);
+        setEvents(data);
+        setCountEvent(data.length);
+      } catch (error) {
+        console.log("ERROR");
+        setCountEvent(0);
+        setEvents([]);
+      }
+    };
+    fetchData();
+  }, [params.tname]);
 
   const EventType = EventType_Data.find(
     (e: TypeEvent) => e.link === params.tname
@@ -38,7 +43,7 @@ export default async function TypePage({
             </div>
           </div>
           <div className="text-[#8B0000] w-full font-bold text-7xl text-end">
-            {count}
+            {countEvent}
             <div className="text-gray-500 w-[100%] text-4xl my-5 inline mx-10 ">
               EVENT
             </div>
@@ -49,7 +54,7 @@ export default async function TypePage({
             <FilterType />
           </div>
           <div className="w-[80%] h-[100%]">
-            <ShowCard Events={EventByType} />
+            <ShowCard Events={events} />
           </div>
         </div>
       </div>
