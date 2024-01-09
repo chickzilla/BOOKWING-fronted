@@ -52,7 +52,7 @@ export default function EventDatailPage({
     fetchData();
   }, []);
   return (
-    <main className="w-full bg-neutral-100 h-auto py-16 mt-[70px]">
+    <main className="w-full bg-neutral-100 dark:bg-gray-800 h-auto py-16 mt-[70px]">
       <div className="flex flex-col w-[100%] h-[100%] items-center space-y-20 ">
         <RunningDetail
           eventName={event?.name}

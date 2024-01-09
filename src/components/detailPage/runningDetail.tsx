@@ -33,20 +33,22 @@ export default function RunningDetail({
           sizes="1000px"
         />
       </div>
-      <div className="w-[50%] h-max text-black">
+      <div className="w-[50%] h-max text-black dark:text-gray-200">
         <h1 className="text-3xl font-bold">{eventName}</h1>
-        <div className="mt-14 text-gray-800">
+        <div className="mt-14 text-gray-800 dark:text-gray-300">
           <LocationOnIcon />{" "}
           <div className="pl-6 inline text-base font-normal">{location}</div>
         </div>
-        <div className="mt-2 text-gray-800">
+        <div className="mt-2 text-gray-800 dark:text-gray-300">
           <CalendarMonthIcon />{" "}
           <div className="pl-6 inline text-base">{date}</div>
         </div>
         <div className="w-full border-t-zinc-400 border-2 mt-10 mb-5 " />
         <div className="flex flex-row w-full">
           <div className="font-bold mr-10">Running:</div>
-          <div className="ml-10 text-gray-800">{allDistance}</div>
+          <div className="ml-10 text-gray-800 dark:text-gray-300">
+            {allDistance}
+          </div>
         </div>
         <div className="w-full border-t-zinc-400 border-2 mt-5" />
       </div>

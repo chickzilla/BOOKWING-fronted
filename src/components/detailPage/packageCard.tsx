@@ -18,7 +18,7 @@ export default function PackageCard({
   time: string;
 }) {
   return (
-    <div className="w-[80%] h-[90%] bg-white rounded-lg text-black flex flex-col justify-between p-8 border-black shadow-xl duration-300 hover:shadow-2xl ">
+    <div className="w-[80%] h-[90%] bg-white rounded-lg text-black flex flex-col justify-between p-8 border-black shadow-xl duration-300 hover:shadow-2xl dark:shadow-gray-500 dark:bg-gray-500 dark:text-gray-200">
       <div className="flex flex-row justify-between">
         <h1 className="text-lg font-bold ">{distance}</h1>
         <h1 className=" text-end pr-5">

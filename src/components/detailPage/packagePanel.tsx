@@ -14,7 +14,7 @@ export default function PackagePanel({
 }) {
   return (
     <div className="w-[70%] h-auto flex flex-row flex-wrap space-y-5">
-      <div className="w-full h-[10%] flex flex-row justify-between text-2xl font-bold text-black">
+      <div className="w-full h-[10%] flex flex-row justify-between text-2xl font-bold text-black dark:text-gray-200">
         Join Running
       </div>
       {allDistance.map((d) => (

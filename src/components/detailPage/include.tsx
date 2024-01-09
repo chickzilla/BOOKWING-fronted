@@ -8,7 +8,7 @@ export default function IncludeInEntry({
   allInclude: string[];
 }) {
   return (
-    <div className="w-[50%] h-[auto] flex flex-col text-black">
+    <div className="w-[50%] h-[auto] flex flex-col text-black dark:text-gray-200">
       <div>
         <h1 className="text-3xl font-bold text-center">
           What’s included in entry
