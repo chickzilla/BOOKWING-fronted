@@ -77,7 +77,7 @@ export default function DateandLocationForm({
   }, [selectProvince, selectAmphur, selectpostcode]);
 
   return (
-    <div className="w-[60%] h-[25%] bg-white rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
+    <div className="w-[60%] h-[25%] bg-white dark:bg-gray-400 rounded-xl shadow-xl flex flex-col py-10 items-center bl-black">
       <div className="w-[80%] h-[80%] flex flex-col justify-center items-center space-y-10">
         <div className="w-[100%] h-[70%] flex flex-col items-center justify-center space-y-5">
           <div className="w-[100%]">Province</div>

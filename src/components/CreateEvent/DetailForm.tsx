@@ -15,7 +15,7 @@ export default function DetailForm({
   const [fieldPicture, setFieldPicture] = useState<File | null>(null);
 
   return (
-    <div className="w-[60%] h-[20%] bg-white bg-white rounded-xl shadow-xl flex flex-row py-10 items-center">
+    <div className="w-[60%] h-[20%] bg-white dark:bg-gray-400 rounded-xl shadow-xl flex flex-row py-10 items-center">
       <div className="w-[50%] h-[100%] flex flex-col justify-center items-center space-y-2">
         <div className="w-[80%] h-[10%] text-black text-md text-center">
           Upload picture

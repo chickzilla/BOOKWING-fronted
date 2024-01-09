@@ -125,9 +125,9 @@ export default function CreateEventPage() {
   return !isToken ? (
     <main></main>
   ) : (
-    <main className="bg-neutral-100 w-full h-[250vh] flex flex-col items-center py-[70px] text-black">
+    <main className="bg-neutral-100 dark:bg-gray-900 w-full h-[250vh] flex flex-col items-center py-[70px] text-black">
       <div className="w-[100%] h-[100%] flex flex-col items-center pt-[60px] space-y-10">
-        <div className="text-4xl text-black font-semibold w-[60%] h-[5%] flex flex-row justify-between">
+        <div className="text-4xl text-black dark:text-gray-200 font-semibold w-[60%] h-[5%] flex flex-row justify-between">
           New Event
           <Button
             variant="contained"

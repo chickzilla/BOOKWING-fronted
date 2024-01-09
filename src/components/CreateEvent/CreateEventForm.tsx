@@ -46,12 +46,13 @@ export default function CreateEventForm({
   }, [selectType]);
 
   return (
-    <div className="w-[60%] h-[25%] bg-white bg-white rounded-xl shadow-xl flex flex-col py-10 items-center space-y-5">
+    <div className="w-[60%] h-[25%] bg-white dark:bg-gray-400 rounded-xl shadow-xl flex flex-col py-10 items-center space-y-5">
       <div className="w-[80%] h-[50%] flex text-center justify-center items-center">
         <TextField
           id="outlined-basic"
           label="Event Name"
           variant="outlined"
+          className=""
           value={selectName}
           onChange={(e) => {
             setSelectName(e.target.value);
@@ -64,7 +65,7 @@ export default function CreateEventForm({
       </div>
       <div className="w-[80%] h-[50%] flex flex-row">
         <div className="w-[50%] h-[100%] flex flex-col justify-start items-start ">
-          <InputLabel>Select Event Type</InputLabel>
+          <InputLabel className="">Select Event Type</InputLabel>
           <Select
             labelId="demo-multiple-name-label"
             sx={{ width: "80%" }}

@@ -53,7 +53,7 @@ export default function newOrganizer() {
   return !isToken || isOrganizer ? (
     <main></main>
   ) : (
-    <main className="bg-neutral-100 w-full h-screen flex flex-col items-center text-black">
+    <main className="bg-neutral-100 dark:bg-gray-900 w-full h-screen flex flex-col items-center text-black dark:text-gray-200">
       <div className="items-center flex flex-row text-center w-full h-full">
         <div className="w-[40%] h-full">
           <Image
@@ -79,7 +79,7 @@ export default function newOrganizer() {
           </div>
           <div className="w-[80%] h-[20%] flex justify-center">
             <button
-              className="border-2 border-black text-white py-2 px-3 rounded-xl w-[100%] font-semibold  hover:text-blue-950 transition-colors hover:bg-white bg-blue-950 text-2xl uration-300"
+              className="border-2 border-black text-white py-2 px-3 rounded-xl w-[100%] font-semibold  hover:text-blue-950 transition-colors hover:bg-white dark:hover:bg-gray-400 bg-blue-950 text-2xl uration-300"
               onClick={() => {
                 hadlerChangeRole();
               }}

@@ -19,7 +19,7 @@ export default function PackageForm({
   }, [SelectPackageGroup]);
 
   return (
-    <div className="w-[60%] h-[20%] bg-white bg-white rounded-xl shadow-xl flex flex-col justify-center items-center py-10">
+    <div className="w-[60%] h-[20%] bg-white dark:bg-gray-400 rounded-xl shadow-xl flex flex-col justify-center items-center py-10">
       <div className="w-[80%] h-[20%] text-black text-lg ">Include</div>
       <div className="w-[80%] h-[80%]">
         <FormGroup className="w-[100%] h-[100%] flex px-5 overflow-x-auto overflow-y-auto ">
