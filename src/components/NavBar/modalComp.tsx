@@ -18,7 +18,11 @@ export default function ModalComp() {
   const [mouseEnter, setMouseEnter] = useState<boolean>(false);
   return (
     <>
-      <Button key="3xl" onPress={onOpen} className="bg-red text-white">
+      <Button
+        key="3xl"
+        onPress={onOpen}
+        className="bg-red text-white ml-6 text-base"
+      >
         Types
       </Button>
       <Modal size="3xl" isOpen={isOpen} onOpenChange={onOpenChange}>

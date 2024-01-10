@@ -26,6 +26,7 @@ export default function Navbar() {
         </Link>
         <div className="w-[60%] h-[100%] flex flex-row justify-center items-center">
           <div className="w-[50%] h-[100%] space-x-12 flex flex-row items-center justify-center">
+            <Link href="/mybooking">Booking</Link>
             <Link href="/newOrganizer">Organize</Link>
             <Link href="/mapPage">Map</Link>
           </div>
