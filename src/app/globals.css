@@ -29,3 +29,8 @@ body {
 .mapboxgl-popup-content {
   padding: 0 !important;
 }
+
+* {
+  transition-property: color;
+  transition-duration: 100ms; /* You can adjust the duration as needed */
+}

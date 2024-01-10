@@ -107,7 +107,7 @@ export default function CreateEventPage() {
 
         const file = await uploadFile(selectPictureFile);
         data.picture = file.url;
-        const geocoding = await getCoordinates(selectProvince);
+        const geocoding = await getCoordinates(selectLocation);
         const latidude = geocoding.features[0].center[1];
         const longitude = geocoding.features[0].center[0];
         data.latitude = latidude;
@@ -115,6 +115,8 @@ export default function CreateEventPage() {
         const response = await createEvent({ Event: data, Token: Token });
 
         router.push(`/runningevent/${response.message}`);
+
+        //console.log(geocoding);
       } catch (error) {
         alert("fail to create event Please Try again with new name");
         setSubmit(false);
