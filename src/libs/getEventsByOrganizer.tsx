@@ -6,9 +6,7 @@ export default async function getEventsByOrganizer(organizerUsername: string) {
   });*/
   const response = await fetch(
     `${BackendUrl}/event/organizer?organizer=${organizerUsername}`,
-    {
-      next: { tags: ["events"] },
-    }
+    {}
   );
 
   if (!response.ok) {

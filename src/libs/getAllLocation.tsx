@@ -3,9 +3,7 @@
 const BackendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default async function getAllLocation() {
-  const response = await fetch(`${BackendUrl}/event/location`, {
-    next: { tags: ["events"] },
-  });
+  const response = await fetch(`${BackendUrl}/event/location`);
   console.log("backend url", BackendUrl);
 
   if (!response.ok) {

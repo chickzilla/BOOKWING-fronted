@@ -22,6 +22,7 @@ export default function EventDatailPage({
     latitude: 0,
     type: [],
     picture: "",
+    picture_location: "",
     province: "",
     location: "",
     date: "",
@@ -70,7 +71,7 @@ export default function EventDatailPage({
           time={event.time}
           province={event.location}
         />
-        <MapDetail />
+        {/*<MapDetail latitude={event.latitude} longitude={event.longitude} />*/}
       </div>
     </main>
   );
