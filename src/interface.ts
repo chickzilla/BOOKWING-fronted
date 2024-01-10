@@ -5,6 +5,7 @@ export interface Event {
   latitude: number;
   type: string[];
   picture: string;
+  picture_location: string;
   province: string;
   location: string;
   date: string;

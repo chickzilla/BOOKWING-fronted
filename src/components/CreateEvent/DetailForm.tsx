@@ -20,8 +20,8 @@ export default function DetailForm({
         <div className="w-[80%] h-[10%] text-black text-md text-center">
           Upload picture
         </div>
-        <div className="w-[80%] h-[10%] text-black text-xs text-center text-gray-500">
-          JPG, JPEG, PNG only
+        <div className="w-[80%] h-[10%] text-xs text-center text-gray-500 dark:text-gray-800">
+          {/*JPG, JPEG, PNG only*/}
         </div>
         <div className="w-[80%] h-[80%] flex flex-col items-center justify-center ">
           <label
@@ -40,9 +40,9 @@ export default function DetailForm({
               }}
             />
             <input
-              accept="image/png, image/jpeg, image/jpg"
               id="icon-button-file"
               type="file"
+              accept="image/jpeg, image/png, image/jpg"
               onChange={(e) => {
                 if (e.target.files && e.target.files.length > 0) {
                   setFieldPicture(e.target.files[0]);

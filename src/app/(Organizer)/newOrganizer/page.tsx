@@ -32,7 +32,8 @@ export default function newOrganizer() {
             setIsOrganizer(false);
           }
         } catch (error) {
-          alert("Error please try again later");
+          console.log(error);
+          //alert("Error please try again later");
         }
       }
     };
@@ -47,7 +48,7 @@ export default function newOrganizer() {
       alert("Change role to organizer success");
       router.push("/OrganizeEvent");
     } catch (error) {
-      alert("Error please try again later");
+      console.log(error);
     }
   };
   return !isToken || isOrganizer ? (

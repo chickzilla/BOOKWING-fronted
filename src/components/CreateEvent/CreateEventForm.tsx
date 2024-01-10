@@ -83,7 +83,7 @@ export default function CreateEventForm({
         </div>
         <div className="w-[50%] h-[100%] flex flex-col justify-center items-center space-y-8">
           <div className="w-[100%] h-[20%]">Running Detail</div>
-          <div className="w-[100%] h-[80%] text-gray-500 text-xs">
+          <div className="w-[100%] h-[80%] text-gray-500 dark:text-gray-800 text-xs">
             {selectType.length === 0
               ? "Select event type to see event description"
               : allDescription}

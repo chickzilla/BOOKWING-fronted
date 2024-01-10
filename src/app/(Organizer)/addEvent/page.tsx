@@ -42,6 +42,8 @@ export default function CreateEventPage() {
   const [selectTime, setSelectTime] = useState<string>("");
   const [selectPackage, setSelectPackage] = useState<string[]>([]);
   const [selectPicture, setSelectPicture] = useState<string>("No picture");
+  const [selectPicture_location, setSelectPicture_location] =
+    useState<string>("");
   const [selectlatitude, setSelectlatitude] = useState<number>(11.0);
   const [selectlongitude, setSelectlongitude] = useState<number>(11.0);
 
@@ -98,6 +100,7 @@ export default function CreateEventPage() {
         time: selectTime,
         package: selectPackage,
         picture: selectPicture,
+        picture_location: selectPicture_location,
         latitude: selectlatitude,
         longitude: selectlongitude,
         organizer: organizer,
@@ -107,6 +110,7 @@ export default function CreateEventPage() {
 
         const file = await uploadFile(selectPictureFile);
         data.picture = file.url;
+        data.picture_location = file.location;
         const geocoding = await getCoordinates(selectLocation);
         const latidude = geocoding.features[0].center[1];
         const longitude = geocoding.features[0].center[0];
@@ -118,7 +122,7 @@ export default function CreateEventPage() {
 
         //console.log(geocoding);
       } catch (error) {
-        alert("fail to create event Please Try again with new name");
+        alert("fail to create event Please Try again later");
         setSubmit(false);
       }
     }
