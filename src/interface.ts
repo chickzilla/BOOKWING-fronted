@@ -54,3 +54,12 @@ export interface User {
   password: string;
   role: string;
 }
+
+export interface Booking {
+  event: string;
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  shirtsize: string;
+}
