@@ -47,6 +47,7 @@ export interface Amphur {
 }
 
 export interface User {
+  id: string;
   firstname: string;
   lastname: string;
   email: string;
@@ -56,10 +57,9 @@ export interface User {
 }
 
 export interface Booking {
-  event: string;
-  name: string;
-  surname: string;
-  email: string;
+  eventid: string;
+  userid: string;
+  eventtype: string;
   phone: string;
   shirtsize: string;
 }

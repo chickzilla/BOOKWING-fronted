@@ -15,7 +15,7 @@ export default async function BookingPage({
   return (
     <main className="flex flex-col items-center w-full bg-neutral-100 h-auto py-16 pt-[145px]">
       <EventBookingDatail event={event} type={params.type} />
-      <BookingInformation />
+      <BookingInformation eventid={params.eventid} eventtype={params.type} />
     </main>
   );
 }

@@ -3,78 +3,68 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import InputAdornment from "@mui/material/InputAdornment/InputAdornment";
 import TextField from "@mui/material/TextField/TextField";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { InputLabel, Select, MenuItem, Button } from "@mui/material";
+import { Booking, User } from "@/interface";
+import createBooking from "@/libs/createBooking";
+import { getCookie } from "typescript-cookie";
+import { useRouter } from "next/navigation";
+import getUserProfile from "@/libs/getUserProfile";
+import EventType_Data from "@/data/eventType";
 
-export default function BookingInformation() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
+export default function BookingInformation({
+  eventid,
+  eventtype,
+}: {
+  eventid: string;
+  eventtype: string;
+}) {
   const [phone, setPhone] = useState("");
   const [shirtsize, setSize] = useState("");
+  const [token, setToken] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    const getToken = async () => {
+      const token = getCookie("jwt");
+      setToken(token || "");
+    };
+    getToken();
+  }, []);
+
+  const createBookingHandler = async () => {
+    const userProfile = await getUserProfile({ token });
+    const user: User = userProfile.user;
+    const typetoLink = () => {
+      const foundEvent = EventType_Data.find(
+        (event) => event.title === decodeURIComponent(eventtype)
+      );
+      if (foundEvent) return foundEvent.link;
+    };
+    const eventtoLink = typetoLink();
+
+    if (!phone || !shirtsize || !eventtoLink) {
+      alert("Please fill all information");
+    } else {
+      const data: Booking = {
+        eventid: eventid,
+        userid: user.id,
+        eventtype: eventtoLink,
+        phone: phone,
+        shirtsize: shirtsize,
+      };
+      try {
+        await createBooking({ booking: data, token: token });
+        router.push("/mybooking");
+      } catch (err) {
+        alert("Booking fail, Booking already exist or Try again later");
+        console.error(err);
+      }
+    }
+  };
   return (
     <div className="flex flex-col gap-y-8 bg-white w-[50%] h-auto items-center px-8 py-12 rounded-xl shadow-lg border-2 border-black hover:cursor-pointer">
-      <TextField
-        id="outlined-basic"
-        label="Firstname"
-        variant="outlined"
-        required
-        sx={{
-          width: "80%",
-          marginBottom: "12px",
-        }}
-        size="small"
-        value={firstname}
-        onChange={(e) => setFirstname(e.target.value)}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-      />
-      <TextField
-        id="outlined-basic"
-        label="Lastname"
-        variant="outlined"
-        required
-        sx={{
-          width: "80%",
-          marginBottom: "12px",
-        }}
-        size="small"
-        value={lastname}
-        onChange={(e) => setLastname(e.target.value)}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-      />
-      <TextField
-        id="outlined-basic"
-        label="Email"
-        variant="outlined"
-        required
-        sx={{
-          width: "80%",
-          marginBottom: "12px",
-        }}
-        size="small"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-      />
       <TextField
         id="outlined-basic"
         label="Phone"
@@ -124,11 +114,12 @@ export default function BookingInformation() {
             </MenuItem>
           </Select>
         </div>
+
         <Button
           variant="contained"
-          //onClick={SubmitHandler}
           className="hover:bg-[#CD5C5C] bg-[#B22222] text-base text-white w-auto h-[50%] mr-32"
           endIcon={<DoneAllIcon className="text-white" />}
+          onClick={createBookingHandler}
         >
           JOIN US
         </Button>
