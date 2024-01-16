@@ -115,8 +115,6 @@ export default function CreateEventPage() {
         const response = await createEvent({ Event: data, Token: Token });
 
         router.push(`/runningevent/${response.message}`);
-
-        //console.log(geocoding);
       } catch (error) {
         alert("fail to create event Please Try again later");
         setSubmit(false);
