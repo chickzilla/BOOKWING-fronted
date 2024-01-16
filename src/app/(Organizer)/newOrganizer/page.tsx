@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getCookie } from "typescript-cookie";
+import { getCookie, setCookie } from "typescript-cookie";
 import changeRoleOrganizer from "@/libs/changeRoleOrganizer";
 import getUserProfile from "@/libs/getUserProfile";
 import { User } from "@/interface";
@@ -28,12 +28,10 @@ export default function newOrganizer() {
             setIsOrganizer(true);
             window.location.href = "/OrganizeEvent";
           } else {
-            //alert(user.role);
             setIsOrganizer(false);
           }
         } catch (error) {
           console.log(error);
-          //alert("Error please try again later");
         }
       }
     };
@@ -44,7 +42,8 @@ export default function newOrganizer() {
 
   const hadlerChangeRole = async () => {
     try {
-      changeRoleOrganizer(JWTToken);
+      const result = await changeRoleOrganizer(JWTToken);
+      setCookie("jwt", result.AccessToken);
       alert("Change role to organizer success");
       router.push("/OrganizeEvent");
     } catch (error) {
