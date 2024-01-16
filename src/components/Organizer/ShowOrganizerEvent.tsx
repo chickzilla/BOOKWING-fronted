@@ -63,7 +63,7 @@ export default function ShowOrganizerEvent({
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const data = await getEventsByOrganizer(organizer);
+        const data = await getEventsByOrganizer(organizer, Token);
         setEventList(data);
       } catch (error) {
         setEventList([]);
