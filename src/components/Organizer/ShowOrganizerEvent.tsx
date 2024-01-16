@@ -48,9 +48,7 @@ export default function ShowOrganizerEvent({
       setToken(token || "");
       try {
         if (token) {
-          const result = await getUserProfile({ token });
-          const user: User = result.user;
-          setOrganizer(user.username);
+          setOrganizer(getCookie("username") || "");
         }
       } catch (error) {
         console.log(error);

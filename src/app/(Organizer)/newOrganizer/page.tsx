@@ -22,10 +22,8 @@ export default function newOrganizer() {
         setIsToken(true);
         setJWTToken(getToken);
         try {
-          const result = await getUserProfile({ token: getToken });
-          const user: User = result.user;
-          if (user.role === "organizer") {
-            setIsOrganizer(true);
+          const role = getCookie("role");
+          if (role === "organizer") {
             window.location.href = "/OrganizeEvent";
           } else {
             setIsOrganizer(false);
@@ -43,6 +41,7 @@ export default function newOrganizer() {
   const hadlerChangeRole = async () => {
     try {
       const result = await changeRoleOrganizer(JWTToken);
+      setCookie("role", result.role);
       setCookie("jwt", result.AccessToken);
       alert("Change role to organizer success");
       router.push("/OrganizeEvent");

@@ -12,10 +12,7 @@ import uploadFile from "@/libs/uploadFile";
 import createEvent from "@/libs/createEvent";
 import getCoordinates from "@/libs/getCoordinates";
 import { getCookie } from "typescript-cookie";
-import getUserProfile from "@/libs/getUserProfile";
-import { User } from "@/interface";
 import DensitySmallIcon from "@mui/icons-material/DensitySmall";
-import { revalidateTag } from "next/cache";
 
 export default function CreateEventPage() {
   // REDIRECT TO LOGIN IF NOT AUTHENTICATED
@@ -59,9 +56,8 @@ export default function CreateEventPage() {
       setToken(token || "");
       try {
         if (token) {
-          const result = await getUserProfile({ token });
-          const user: User = result.user;
-          setOrganizer(user.username);
+          const username = getCookie("username");
+          setOrganizer(username || "");
         }
       } catch (error) {
         console.log(error);

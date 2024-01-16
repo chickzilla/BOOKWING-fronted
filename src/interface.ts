@@ -57,6 +57,7 @@ export interface User {
 }
 
 export interface Booking {
+  id: string;
   eventid: string;
   userid: string;
   eventtype: string;

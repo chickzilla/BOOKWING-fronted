@@ -4,7 +4,6 @@ import Link from "next/link";
 import { removeCookie } from "typescript-cookie";
 import { useEffect, useState } from "react";
 import { getCookie } from "typescript-cookie";
-import getUserProfile from "@/libs/getUserProfile";
 import { User } from "@/interface";
 import { useRouter } from "next/navigation";
 
@@ -29,10 +28,8 @@ export default function NavbarAuth() {
     const fetchUser = async () => {
       if (isToken) {
         try {
-          const result = await getUserProfile({ token });
-          const user: User = result.user;
-          setUsername(user.username);
-          setRole(user.role);
+          setUsername(getCookie("username") || "");
+          setRole(getCookie("role") || "");
         } catch (error) {
           console.log(error);
         }

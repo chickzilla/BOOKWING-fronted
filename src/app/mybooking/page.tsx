@@ -14,8 +14,8 @@ export default function MyBookingPage() {
     getToken();
   }, []);
   return (
-    <main className="flex flex-col items-center w-full bg-neutral-100 h-[100vh] py-16 pt-[145px]">
-      <BookingDescribetion token={token}></BookingDescribetion>
+    <main className="bg-neutral-100 dark:bg-gray-900 flex flex-col items-center w-full bg-neutral-100 h-[auto] min-h-[100vh] pt-[70px]">
+      {token && <BookingDescribetion Token={token}></BookingDescribetion>}
     </main>
   );
 }
