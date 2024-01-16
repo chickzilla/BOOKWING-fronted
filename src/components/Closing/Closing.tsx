@@ -10,8 +10,11 @@ export default function Closing() {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log("fetching data1");
       try {
+        if (events.length > 0) return;
         const data = await getEventsByProvince("Bangkok");
+        console.log("data", data);
         setEvents(data);
       } catch (error) {
         console.log("ERROR FETCHING DATA BY PROVINCE");

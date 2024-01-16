@@ -34,6 +34,8 @@ export default function EventDatailPage({
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if (event.id !== "") return;
+        console.log("fetching data event by ID");
         const data = await getEventByID(params.eventid);
         setEvent(data);
 

@@ -15,6 +15,7 @@ export default function TypePage({ params }: { params: { tname: string } }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if (events.length > 0) return;
         const data = await getEventsByTypes(params.tname);
         setEvents(data);
         setCountEvent(data.length);

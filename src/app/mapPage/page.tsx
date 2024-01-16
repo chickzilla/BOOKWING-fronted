@@ -13,9 +13,9 @@ export default function MapPage() {
   useEffect(() => {
     const fetchAllEvent = async () => {
       try {
+        if (eventDetailData.length > 0) return;
         const data = await getAllLocation();
         setEventDetailData(data);
-        //console.log("data all location", data);
       } catch (error) {}
     };
     fetchAllEvent();

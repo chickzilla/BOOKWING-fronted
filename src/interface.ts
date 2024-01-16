@@ -63,3 +63,10 @@ export interface Booking {
   phone: string;
   shirtsize: string;
 }
+
+export interface ItemDetail {
+  picture: string;
+  name: string;
+  description: string;
+  points: number;
+}
