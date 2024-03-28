@@ -53,6 +53,7 @@ export default function BookingInformation({
         eventtype: eventtoLink,
         phone: phone,
         shirtsize: shirtsize,
+        id: "",
       };
       try {
         await createBooking({ booking: data, token: token });
